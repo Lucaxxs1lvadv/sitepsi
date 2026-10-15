@@ -257,7 +257,7 @@
             discordUrl: "https://discord.gg/PtjhGh35",
             discordUser: "Clinica PsiPsi",
             enderecoPresencial: "R. Chiden Kalil, 428 - Jardim Santa Helena, Bocaiúva do Sul - PR, 83453-054",
-            valorInfo: "Atendimento particular com hora marcada"
+            valorInfo: "Atendimento particular com hora marcada, verificar horários disponíveis.",
         };
     </script>
 
@@ -286,8 +286,8 @@
                     </svg>
                 </div>
                 <div>
-                    <span id="navPsiName" class="font-serif text-xl sm:text-2xl font-semibold tracking-tight block leading-none">Dra. Helena Vasconcelos</span>
-                    <span id="navPsiCrp" class="text-xs opacity-70 tracking-widest uppercase mt-0.5 block">CRP 06/184920</span>
+                    <span id="navPsiName" class="font-serif text-xl sm:text-2xl font-semibold tracking-tight block leading-none">Dra. Camili Ribeiro</span>
+                    <span id="navPsiCrp" class="text-xs opacity-70 tracking-widest uppercase mt-0.5 block">CRP 08/48173</span>
                 </div>
             </a>
 
@@ -828,7 +828,7 @@
                                 <option value="Online via Discord (Sala Privada)">Online via Discord (Sala Privada)</option>
                                 <option value="Online via Google Meet (Vídeo)">Online via Google Meet (Vídeo)</option>
                                 <option value="Online via WhatsApp Vídeo">Online via WhatsApp Vídeo</option>
-                                <option value="Presencial (Consultório SP)">Presencial (Consultório)</option>
+                                <option value="Presencial (Consultório)">Presencial (Consultório)</option>
                             </select>
                         </div>
 
@@ -855,7 +855,7 @@
                             <span>Confirmar e Enviar pelo WhatsApp</span>
                         </button>
 
-                        <button onclick="reserveDirectlyInApp()" class="theme-btn-outline-primary w-full py-3.5 px-5 rounded-2xl font-medium text-xs sm:text-sm flex items-center justify-center gap-2">
+                        <button onclick="copyAppointmentSummary()" class="theme-btn-outline-primary w-full py-3.5 px-5 rounded-2xl font-medium text-xs sm:text-sm flex items-center justify-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
@@ -1005,7 +1005,7 @@
                     </div>
                     <div>
                         <span class="text-xs uppercase tracking-wider opacity-70 block">Consultório Presencial & Atendimento Global Online</span>
-                        <p id="footerAddressText" class="font-serif text-xl font-medium">Av. Paulista, 1400 - Conj. 82, São Paulo - SP</p>
+                        <p id="footerAddressText" class="font-serif text-xl font-medium"> R. Chiden Kalil, 428 - Jardim Santa Helena, Bocaiúva do Sul - PR, 83453-054</p>
                     </div>
                 </div>
 
@@ -1186,14 +1186,14 @@
         let selectedDayIndex = 0;
         let selectedTimeSlot = null;
         // Horários ocupados simulados + agendados pelo usuário na sessão
-        let bookedSlotsMap = {
+        /*let bookedSlotsMap = {
             "0": ["09:00", "15:00", "19:00"],
             "1": ["10:00", "14:00"],
             "2": ["08:00", "16:00", "18:00"],
             "3": ["11:00", "15:00"],
             "4": ["09:00", "17:00", "20:00"],
             "5": ["10:00", "11:00", "14:00"]
-        };
+        };*/
 
         function generateUpcomingDays() {
             availableDays = [];
@@ -1215,7 +1215,77 @@
             }
         }
 
-        function renderDaysGrid() {
+        //Função nova para teste
+       function renderDaysGrid() {
+            const container = document.getElementById('daysGridContainer');
+            container.innerHTML = '';
+
+            availableDays.forEach((dayObj, idx) => {
+                const isSelected = idx === selectedDayIndex;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.onclick = () => selectDay(idx); // <-- Garanta que esta linha está aqui
+                btn.className = `p-3 rounded-2xl border text-center flex flex-col items-center justify-center gap-0.5 focus:outline-none ${
+                    isSelected 
+                        ? 'theme-btn-primary shadow-md scale-[1.03]' 
+                        : 'border-current/20 hover:border-current/60 opacity-80 hover:opacity-100'
+                }`;
+                btn.innerHTML = `
+                    <span class="text-[11px] uppercase tracking-wider opacity-75">${dayObj.dayName}</span>
+                    <span class="font-serif text-2xl font-bold leading-none my-0.5">${dayObj.dayNumber}</span>
+                    <span class="text-[10px] uppercase opacity-70">${dayObj.monthName}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function renderTimeSlots() {
+            const container = document.getElementById('timeSlotsContainer');
+            container.innerHTML = '';
+
+            Object.keys(scheduleTemplate).forEach(periodName => {
+                const slots = scheduleTemplate[periodName];
+                const periodWrapper = document.createElement('div');
+                periodWrapper.className = 'space-y-2.5';
+
+                const periodHeader = document.createElement('div');
+                periodHeader.className = 'flex items-center gap-2 text-xs font-medium opacity-75';
+                periodHeader.innerHTML = `<span>• ${periodName}</span>`;
+                periodWrapper.appendChild(periodHeader);
+
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-2 sm:grid-cols-4 gap-2.5';
+
+                slots.forEach(timeStr => {
+                    const isSelected = selectedTimeSlot === timeStr;
+
+                    const slotBtn = document.createElement('button');
+                    slotBtn.type = 'button';
+                    slotBtn.onclick = () => selectTimeSlot(timeStr);
+                    slotBtn.className = `py-2.5 px-3 rounded-xl border text-xs sm:text-sm font-mono font-medium focus:outline-none ${
+                        isSelected
+                            ? 'theme-btn-primary shadow-md scale-[1.02]'
+                            : 'border-current/25 hover:border-current'
+                    }`;
+                    slotBtn.innerHTML = isSelected ? `🐾 ${timeStr}` : timeStr;
+                    grid.appendChild(slotBtn);
+                });
+
+                periodWrapper.appendChild(grid);
+                container.appendChild(periodWrapper);
+            });
+        }
+
+        function selectDay(idx) {
+            selectedDayIndex = idx;
+            renderDaysGrid();
+            renderTimeSlots();
+            updateAppointmentSummary();
+            hideBookingFeedback();
+        }
+
+
+        /*function renderDaysGrid() {
             const container = document.getElementById('daysGridContainer');
             container.innerHTML = '';
 
@@ -1282,9 +1352,9 @@
                 periodWrapper.appendChild(grid);
                 container.appendChild(periodWrapper);
             });
-        }
+        }*/
 
-        function selectDay(idx) {
+        /*function selectDay(idx) {
             selectedDayIndex = idx;
             // Se o horário selecionado estiver ocupado no novo dia, limpa
             const busyForDay = bookedSlotsMap[String(selectedDayIndex)] || [];
@@ -1294,7 +1364,7 @@
             renderDaysGrid();
             renderTimeSlots();
             updateAppointmentSummary();
-        }
+        }*/
 
         function selectTimeSlot(timeStr) {
             selectedTimeSlot = timeStr;
@@ -1365,25 +1435,16 @@
             window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         }
 
-        function reserveDirectlyInApp() {
+        function copyAppointmentSummary() {
             const data = validateBookingInputs();
             if (!data) return;
 
-            // Marca o horário como reservado na interface
-            const key = String(selectedDayIndex);
-            if (!bookedSlotsMap[key]) bookedSlotsMap[key] = [];
-            bookedSlotsMap[key].push(data.timeStr);
-
             const summaryCopy = `Pré-Agendamento Psicoterapia - ${CONFIG_PSICOLOGA.nome} (${CONFIG_PSICOLOGA.crp}) | Paciente: ${data.patientName} | Data: ${data.dateStr} às ${data.timeStr} | Modalidade: ${data.modality}`;
+            
             copyTextToClipboard(summaryCopy);
 
-            selectedTimeSlot = null;
-            renderTimeSlots();
-            updateAppointmentSummary();
-
-            showBookingFeedback(`🤍 Horário (${data.dateStr} às ${data.timeStr}) pré-reservado para ${data.patientName}! O comprovante também foi copiado para sua área de transferência.`);
+            showBookingFeedback(`🤍 Resumo do agendamento copiado para a sua área de transferência!`);
         }
-
         /* --------------------------------------------------------------------------
            5. COPIAR CARTÃO DE CONTATO (COMPATÍVEL COM IFRAME)
            -------------------------------------------------------------------------- */
