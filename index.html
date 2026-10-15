@@ -159,6 +159,28 @@
             50% { opacity: 0.7; transform: scale(1.06); }
         }
 
+        /* Animação de patinhas subindo no rodapé */
+        @keyframes floatPawsUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.6);
+            }
+            30% {
+                opacity: 0.6;
+                transform: translateY(-5px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-45px) scale(0.9);
+            }
+        }
+        .footer-paw-effect {
+            position: absolute;
+            pointer-events: none;
+            font-size: 1.1rem;
+            animation: floatPawsUp 4s ease-in-out infinite;
+        }
+
         .animate-breathe {
             animation: breatheFloat 6s ease-in-out infinite;
         }
@@ -1023,28 +1045,38 @@
     <!-- ==========================================================================
          RODAPÉ COM MENSAGEM DE PREVENÇÃO E ILUSTRAÇÃO DE GATINHOS DORMINDO
          ========================================================================== -->
-    <footer class="theme-section-primary py-12 px-4 sm:px-6 lg:px-8 border-t border-current/10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            
-            <div class="flex items-center gap-3">
-                <!-- Ilustração Gatinho Dormindo Enroladinho -->
-                <svg class="w-10 h-10 opacity-85" viewBox="0 0 60 60" fill="none">
-                    <path d="M12 38C12 24 24 18 36 22C46 25 50 35 46 42C42 48 22 48 12 38Z" fill="currentColor"/>
-                    <path d="M18 26L15 16L24 22Z" fill="currentColor"/>
-                    <path d="M26 24L27 14L33 22Z" fill="currentColor"/>
-                    <path d="M44 42C52 42 54 34 48 30" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
-                </svg>
-                <div>
-                    <p class="font-serif text-lg font-semibold" id="footerPsiName">Dra. Helena Vasconcelos • Psicóloga Clínica</p>
-                    <p class="text-xs theme-muted-primary">© 2026 Todos os direitos reservados • Equilíbrio & Saúde Mental</p>
-                </div>
-            </div>
+    <!-- RODAPÉ -->
+<footer class="theme-section-primary py-12 px-4 sm:px-6 lg:px-8 border-t border-current/10 relative overflow-hidden">
+    
+    <!-- COLE AS PATINHAS AQUI EM CIMA (elas vão subir no fundo, sem atrapalhar o texto) -->
+    <span class="footer-paw-effect" style="left: 10%; bottom: 10px; animation-delay: 0s;">🐾</span>
+    <span class="footer-paw-effect" style="left: 35%; bottom: 5px; animation-delay: 1.5s;">🐾</span>
+    <span class="footer-paw-effect" style="left: 65%; bottom: 12px; animation-delay: 0.8s;">🐾</span>
+    <span class="footer-paw-effect" style="left: 88%; bottom: 8px; animation-delay: 2.2s;">🐾</span>
 
-            <div class="text-xs theme-muted-primary max-w-md md:text-right">
-                <p><strong>Atenção:</strong> Este site não oferece atendimento de emergência imediata. Em caso de crise emocional grave, ligue gratuitamente para o <strong>CVV (188)</strong> ou procure o serviço de saúde mais próximo.</p>
+    <!-- SEU CONTEÚDO ORIGINAL CONTINUA INTEIRINHO AQUI EMBAIXO -->
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left relative z-10">
+        
+        <div class="flex items-center gap-3">
+            <!-- Gatinho dormindo -->
+            <svg class="w-10 h-10 opacity-85" viewBox="0 0 60 60" fill="none">
+                <path d="M12 38C12 24 24 18 36 22C46 25 50 35 46 42C42 48 22 48 12 38Z" fill="currentColor"/>
+                <path d="M18 26L15 16L24 22Z" fill="currentColor"/>
+                <path d="M26 24L27 14L33 22Z" fill="currentColor"/>
+                <path d="M44 42C52 42 54 34 48 30" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+                <p class="font-serif text-lg font-semibold" id="footerPsiName">Dra. Camili Ribeiro • Psicóloga Clínica</p>
+                <p class="text-xs theme-muted-primary">© 2026 Todos os direitos reservados • Equilíbrio & Saúde Mental</p>
             </div>
         </div>
-    </footer>
+
+        <div class="text-xs theme-muted-primary max-w-md md:text-right">
+            <p><strong>Atenção:</strong> Este site não oferece atendimento de emergência imediata. Em caso de crise emocional grave, ligue gratuitamente para o <strong>CVV (188)</strong> ou procure o serviço de saúde mais próximo.</p>
+        </div>
+
+    </div>
+</footer>
 
     <!-- ==========================================================================
          JAVASCRIPT: AGENDA INTERATIVA, TEMA PRETO/BRANCO, ANIMAÇÕES E PARTÍCULAS
