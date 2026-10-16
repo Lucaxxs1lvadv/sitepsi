@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="https://lucaxxs1lvadv.github.io/sitepsi/perfil.jpg, initial-scale=1.0">
+    <title>Dra. Camili Ribeiro | Psicologia Clínica & Acolhimento</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond (Elegante/Editorial) & Plus Jakarta Sans (Moderna/Legível) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           VARIÁVEIS DE TEMA E TRANSIÇÕES SUAVES (PRETO E BRANCO / YIN-YANG)
+           ========================================================================== */
+        :root {
+            /* Modo Padrão: "Modo Gato Branco" (Seções ímpares claras, seções pares escuras) */
+            --sec-primary-bg: #FAF9F5;
+            --sec-primary-surface: #FFFFFF;
+            --sec-primary-text: #111113;
+            --sec-primary-muted: #52525B;
+            --sec-primary-border: #E4E4E7;
+            --sec-primary-accent: #111113;
+            --sec-primary-accent-fg: #FAF9F5;
+
+            --sec-secondary-bg: #0C0C0E;
+            --sec-secondary-surface: #16161A;
+            --sec-secondary-text: #FAF9F5;
+            --sec-secondary-muted: #A1A1AA;
+            --sec-secondary-border: #27272A;
+            --sec-secondary-accent: #FAF9F5;
+            --sec-secondary-accent-fg: #0C0C0E;
+
+            --nav-bg: rgba(250, 249, 245, 0.85);
+            --nav-text: #111113;
+            --nav-border: rgba(17, 17, 19, 0.08);
+        }
+
+        /* Quando o "Modo Gato Preto" é ativado, as polaridades das seções se invertem suavemente */
+        body.black-cat-mode {
+            --sec-primary-bg: #0C0C0E;
+            --sec-primary-surface: #16161A;
+            --sec-primary-text: #FAF9F5;
+            --sec-primary-muted: #A1A1AA;
+            --sec-primary-border: #27272A;
+            --sec-primary-accent: #FAF9F5;
+            --sec-primary-accent-fg: #0C0C0E;
+
+            --sec-secondary-bg: #FAF9F5;
+            --sec-secondary-surface: #FFFFFF;
+            --sec-secondary-text: #111113;
+            --sec-secondary-muted: #52525B;
+            --sec-secondary-border: #E4E4E7;
+            --sec-secondary-accent: #111113;
+            --sec-secondary-accent-fg: #FAF9F5;
+
+            --nav-bg: rgba(12, 12, 14, 0.85);
+            --nav-text: #FAF9F5;
+            --nav-border: rgba(250, 249, 245, 0.1);
+        }
+
+        /* Transição global serena para mudança de cores */
+        body, section, header, footer, div, button, a, span, p, h1, h2, h3, h4, input, select, textarea, svg {
+            transition: background-color 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                        color 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                        fill 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                        stroke 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Classes utilitárias de seções alternadas */
+        .theme-section-primary {
+            background-color: var(--sec-primary-bg);
+            color: var(--sec-primary-text);
+        }
+        .theme-card-primary {
+            background-color: var(--sec-primary-surface);
+            color: var(--sec-primary-text);
+            border: 1px solid var(--sec-primary-border);
+        }
+        .theme-muted-primary {
+            color: var(--sec-primary-muted);
+        }
+        .theme-btn-primary {
+            background-color: var(--sec-primary-accent);
+            color: var(--sec-primary-accent-fg);
+        }
+        .theme-btn-outline-primary {
+            border: 1px solid var(--sec-primary-text);
+            color: var(--sec-primary-text);
+        }
+        .theme-btn-outline-primary:hover {
+            background-color: var(--sec-primary-text);
+            color: var(--sec-primary-bg);
+        }
+
+        .theme-section-secondary {
+            background-color: var(--sec-secondary-bg);
+            color: var(--sec-secondary-text);
+        }
+        .theme-card-secondary {
+            background-color: var(--sec-secondary-surface);
+            color: var(--sec-secondary-text);
+            border: 1px solid var(--sec-secondary-border);
+        }
+        .theme-muted-secondary {
+            color: var(--sec-secondary-muted);
+        }
+        .theme-btn-secondary {
+            background-color: var(--sec-secondary-accent);
+            color: var(--sec-secondary-accent-fg);
+        }
+        .theme-btn-outline-secondary {
+            border: 1px solid var(--sec-secondary-text);
+            color: var(--sec-secondary-text);
+        }
+        .theme-btn-outline-secondary:hover {
+            background-color: var(--sec-secondary-text);
+            color: var(--sec-secondary-bg);
+        }
+
+        /* ==========================================================================
+           ANIMAÇÕES CALMAS E ORGÂNICAS
+           ========================================================================== */
+        @keyframes breatheFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.015); }
+        }
+        @keyframes tailSway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(4deg); }
+        }
+        @keyframes floatHeart {
+            0% { opacity: 0; transform: translateY(10px) scale(0.6); }
+            30% { opacity: 0.9; transform: translateY(-10px) scale(1); }
+            100% { opacity: 0; transform: translateY(-45px) scale(0.8); }
+        }
+        @keyframes pulseSlow {
+            0%, 100% { opacity: 0.35; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.06); }
+        }
+
+        /* Animação de patinhas subindo no rodapé */
+        @keyframes floatPawsUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.6);
+            }
+            30% {
+                opacity: 0.6;
+                transform: translateY(-5px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-45px) scale(0.9);
+            }
+        }
+        .footer-paw-effect {
+            position: absolute;
+            pointer-events: none;
+            font-size: 1.1rem;
+            animation: floatPawsUp 4s ease-in-out infinite;
+        }
+
+        .animate-breathe {
+            animation: breatheFloat 6s ease-in-out infinite;
+        }
+        .animate-breathe-delayed {
+            animation: breatheFloat 7s ease-in-out 1.5s infinite;
+        }
+        .animate-tail {
+            transform-origin: bottom center;
+            animation: tailSway 4.5s ease-in-out infinite;
+        }
+        .animate-pulse-slow {
+            animation: pulseSlow 5s ease-in-out infinite;
+        }
+
+        /* Orelhinhas sutis nos cards ao passar o mouse */
+        .cat-ear-card {
+            position: relative;
+        }
+        .cat-ear-card::before,
+        .cat-ear-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 18px;
+            height: 16px;
+            background-color: currentColor;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0;
+            transform: translateY(4px) scale(0.7);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+        }
+        .cat-ear-card::before {
+            left: 24px;
+            transform: translateY(4px) rotate(-8deg) scale(0.7);
+        }
+        .cat-ear-card::after {
+            right: 24px;
+            transform: translateY(4px) rotate(8deg) scale(0.7);
+        }
+        .cat-ear-card:hover::before {
+            opacity: 0.85;
+            transform: translateY(-13px) rotate(-6deg) scale(1);
+        }
+        .cat-ear-card:hover::after {
+            opacity: 0.85;
+            transform: translateY(-13px) rotate(6deg) scale(1);
+        }
+
+        /* Scroll Reveal suave */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scrollbar minimalista */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111113;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #52525B;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #71717A;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-zinc-500 selection:text-white overflow-x-hidden">
+
+    <!-- ==========================================================================
+         CONFIGURAÇÃO FÁCIL DA PSICÓLOGA (EDITE AQUI OS DADOS REAIS)
+         ========================================================================== -->
+    <script>
+        const CONFIG_PSICOLOGA = {
+            nome: "Dra. Camili Ribeiro",
+            crp: "CRP 08/48173",
+            abordagem: "Psicologia Clínica • Terapia Cognitivo-Comportamental & Humanista",
+            fraseAcolhimento: "Assim como os gatos encontram paz no silêncio e harmonia entre a luz e a sombra, a psicoterapia é o seu espaço seguro para desacelerar, acolher sua história e se reconectar consigo.",
+            // Substitua a URL abaixo pela foto real da psicóloga (ex: "minha-foto.jpg" ou link direto)
+            fotoUrl: "perfil.jpg",
+            whatsappNumero: "5541988467240", // Apenas números com DDI (55) e DDD
+            instagramUrl: "https://www.instagram.com/psipsicrs",
+            instagramUser: "@psipsicrs",
+            linkedinUrl: "https://linkedin.com/in/",
+            linkedinUser: "Camili Ribeiro",
+            discordUrl: "https://discord.gg/PtjhGh35",
+            discordUser: "Clinica PsiPsi",
+            enderecoPresencial: "R. Chiden Kalil, 428 - Jardim Santa Helena, Bocaiúva do Sul - PR, 83453-054",
+            valorInfo: "Atendimento particular com hora marcada, verificar horários disponíveis.",
+        };
+    </script>
+
+    <!-- Canvas de Partículas Serenas (Fundo sutil em toda a página) -->
+    <canvas id="calmParticlesCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- ==========================================================================
+         BARRA DE NAVEGAÇÃO FIXA + BOTÃO DE ALTERNÂNCIA DE TEMA (GATO BRANCO / PRETO)
+         ========================================================================== -->
+    <header style="background-color: var(--nav-bg); color: var(--nav-text); border-bottom: 1px solid var(--nav-border);" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logotipo com Gatinho Minimalista + Psi -->
+            <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-11 h-11 rounded-full border border-current flex items-center justify-center relative overflow-hidden group-hover:scale-105">
+                    <!-- Ícone SVG Yin-Yang Felino -->
+                    <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
+                        <!-- Silhueta Gato Esquerdo (Preenchido) -->
+                        <path d="M32 4C16.536 4 4 16.536 4 32C4 47.464 16.536 60 32 60C32 51 25 46 25 38C25 30 35 27 35 18C35 12 31 8 32 4Z" fill="currentColor"/>
+                        <!-- Orelhas Gato no topo -->
+                        <path d="M22 14L25 22L18 20Z" fill="currentColor"/>
+                        <path d="M42 14L39 22L46 20Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="24" cy="24" r="2.2" fill="var(--sec-primary-bg)"/>
+                        <circle cx="40" cy="40" r="2.5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div>
+                    <span id="navPsiName" class="font-serif text-xl sm:text-2xl font-semibold tracking-tight block leading-none">Dra. Camili Ribeiro</span>
+                    <span id="navPsiCrp" class="text-xs opacity-70 tracking-widest uppercase mt-0.5 block">CRP 08/48173</span>
+                </div>
+            </a>
+
+            <!-- Links de Navegação Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#inicio" class="opacity-75 hover:opacity-100 py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-current hover:after:w-full after:transition-all">Início</a>
+                <a href="#sobre" class="opacity-75 hover:opacity-100 py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-current hover:after:w-full after:transition-all">Sobre Mim</a>
+                <a href="#especialidades" class="opacity-75 hover:opacity-100 py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-current hover:after:w-full after:transition-all">Especialidades</a>
+                <a href="#agenda" class="opacity-75 hover:opacity-100 py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-current hover:after:w-full after:transition-all">Agenda Online</a>
+                <a href="#canais" class="opacity-75 hover:opacity-100 py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-current hover:after:w-full after:transition-all">Canais & Links</a>
+            </nav>
+
+            <!-- Botão Interativo: Alternar Tema (Modo Gato Branco / Modo Gato Preto) -->
+            <div class="flex items-center gap-3">
+                <button id="themeToggleBtn" onclick="toggleCatTheme()" aria-label="Alternar entre Modo Gato Branco e Modo Gato Preto" class="flex items-center gap-2.5 px-3.5 py-2 rounded-full border border-current text-xs sm:text-sm font-medium hover:scale-105 active:scale-95 focus:outline-none shadow-sm">
+                    <!-- Ícone Gatinho Dinâmico -->
+                    <span id="themeCatIconContainer" class="w-5 h-5 flex items-center justify-center">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3c-1.2 0-2.4.4-3.3 1.1L5 2v5.5C4.3 8.8 4 10.3 4 12c0 4.4 3.6 8 8 8s8-3.6 8-8c0-1.7-.3-3.2-1-4.5V2l-3.7 2.1C14.4 3.4 13.2 3 12 3zm-3 8.5c.8 0 1.5.7 1.5 1.5S9.8 14.5 9 14.5 7.5 13.8 7.5 13s.7-1.5 1.5-1.5zm6 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z"/>
+                        </svg>
+                    </span>
+                    <span id="themeToggleLabel" class="hidden sm:inline">Modo Gato Branco</span>
+                    <span class="w-2 h-2 rounded-full bg-current opacity-60"></span>
+                </button>
+
+                <!-- Botão Menu Mobile -->
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl border border-current focus:outline-none" aria-label="Abrir Menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="mobileMenuIconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobileMenuPanel" style="background-color: var(--sec-primary-bg); color: var(--sec-primary-text); border-bottom: 1px solid var(--sec-primary-border);" class="hidden md:hidden px-6 py-5 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium border-b border-current/10">Início</a>
+            <a href="#sobre" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium border-b border-current/10">Sobre Mim</a>
+            <a href="#especialidades" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium border-b border-current/10">Especialidades</a>
+            <a href="#agenda" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium border-b border-current/10">Agenda de Consultas</a>
+            <a href="#canais" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium">Redes Sociais & Discord</a>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         SEÇÃO 1: HERO / APRESENTAÇÃO PRINCIPAL (FUNDO PRIMÁRIO)
+         ========================================================================== -->
+    <section id="inicio" class="theme-section-primary relative pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        
+        <!-- Patinhas sutis decorativas no canto -->
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+                
+                <!-- Coluna de Texto e Boas-Vindas (7 colunas) -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    
+                    <!-- Badge elegante -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-current/20 text-xs sm:text-sm tracking-wide">
+                        <!-- Pequena patinha SVG -->
+                        <svg class="w-4 h-4 opacity-80" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="7" cy="7" r="2.2"/>
+                            <circle cx="12" cy="5.5" r="2.2"/>
+                            <circle cx="17" cy="7" r="2.2"/>
+                            <path d="M12 10c-3.5 0-6 2.5-6 5.5 0 2 1.8 3.5 4 3.5.8 0 1.4-.2 2-.2s1.2.2 2 .2c2.2 0 4-1.5 4-3.5 0-3-2.5-5.5-6-5.5z"/>
+                        </svg>
+                        <span id="heroBadgeAbordagem">Psicologia Clínica • Online & Presencial</span>
+                    </div>
+
+                    <!-- Título Principal -->
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight">
+                        Encontre equilíbrio entre o que você <span class="italic font-normal underline decoration-1 underline-offset-8">sente</span> e quem você <span class="italic font-normal">é</span>.
+                    </h1>
+
+                    <!-- Frase de Acolhimento -->
+                    <p id="heroWelcomeText" class="theme-muted-primary text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Assim como os gatos encontram paz no silêncio e harmonia entre a luz e a sombra, a psicoterapia é o seu espaço seguro para desacelerar, acolher sua história e se reconectar consigo.
+                    </p>
+
+                    <!-- Identificação da Psicóloga -->
+                    <div class="pt-1 flex flex-wrap items-center gap-4">
+                        <div class="flex items-center gap-3 pr-4 border-r border-current/20">
+                            <span class="font-serif text-2xl font-semibold" id="heroPsiName">Dra. Helena Vasconcelos</span>
+                        </div>
+                        <span id="heroPsiCrp" class="text-xs sm:text-sm font-mono uppercase tracking-widest px-3 py-1 rounded-md border border-current/20">
+                            CRP 06/184920
+                        </span>
+                    </div>
+
+                    <!-- Botões de Ação (CTAs) -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#agenda" class="theme-btn-primary px-7 py-4 rounded-2xl font-medium text-sm sm:text-base flex items-center justify-center gap-3 shadow-lg hover:opacity-90 hover:-translate-y-0.5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span>Agendar Sessão na Agenda</span>
+                        </a>
+                        <a id="heroWhatsappBtn" href="#canais" target="_blank" rel="noopener noreferrer" class="theme-btn-outline-primary px-7 py-4 rounded-2xl font-medium text-sm sm:text-base flex items-center justify-center gap-2.5">
+                            <span>Conversar pelo WhatsApp</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Mini Widget Interativo: Acariciar os Gatinhos / Pausa de Calma -->
+                    <div class="pt-4 flex items-center gap-4 text-xs sm:text-sm theme-muted-primary">
+                        <button onclick="petTheCats()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-current/20 hover:border-current/60 active:scale-95">
+                            <span>🐾 Fazer carinho nos gatinhos</span>
+                            <span id="purrCounterBadge" class="px-2 py-0.5 rounded-full text-xs font-semibold bg-current/10">ronrom: 0</span>
+                        </button>
+                        <span id="purrStatusText" class="italic opacity-80">Clique para um momento de leveza</span>
+                    </div>
+                </div>
+
+                <!-- Coluna da Foto da Psicóloga + Ilustração Gatinhos Yin-Yang (5 colunas) -->
+                <div class="lg:col-span-5 flex flex-col items-center relative">
+                    
+                    <!-- Container de Corações Flutuantes ao Acariciar -->
+                    <div id="floatingPurrContainer" class="absolute inset-0 pointer-events-none z-30 overflow- visible"></div>
+
+                    <!-- Moldura Artística em Arco Duplo para a Foto da Psicóloga -->
+                    <div class="relative w-72 sm:w-80 md:w-88 group">
+                        <!-- Halo decorativo atrás -->
+                        <div class="absolute -inset-3 rounded-t-full rounded-b-3xl border border-current/20 rotate-2 group-hover:rotate-0 transition-transform duration-700"></div>
+                        <div class="absolute -inset-1.5 rounded-t-full rounded-b-3xl border border-current/40 -rotate-1 group-hover:rotate-0 transition-transform duration-700"></div>
+                        
+                        <!-- Card Principal da Foto -->
+                        <div class="relative rounded-t-full rounded-b-3xl overflow-hidden aspect-[4/5] shadow-2xl border-2 border-current bg-zinc-200 dark:bg-zinc-800">
+                            <img id="psiProfileImg" 
+                                 src="perfil.jpg" 
+                                 alt="Foto da Psicóloga Dra. Helena Vasconcelos"
+                                 onerror="this.src='https://placehold.co/600x750/18181b/fafafa?text=Foto+da+Psicologa'"
+                                 class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 transition-all duration-1000">
+                            
+                            <!-- Gradiente sutil na base da foto -->
+                            <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 via-black/30 to-transparent flex items-end justify-between p-5 text-white">
+                                <div>
+                                    <p class="font-serif text-lg italic leading-tight">"Escutar com a alma é acolher sem pressa."</p>
+                                    <p class="text-[11px] uppercase tracking-widest opacity-80 mt-0.5">Espaço Terapêutico Seguro</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Flutuante: Ilustração Artística de Gatinho Preto e Gatinho Branco em Harmonia -->
+                        <div onclick="petTheCats()" title="Clique para fazer carinho nos gatinhos" class="cursor-pointer animate-breathe absolute -bottom-13 -left-6 sm:-left-10 theme-card-primary px-4 py-3.5 rounded-2xl shadow-xl flex items-center gap-3.5 z-20 hover:scale-105">
+                            <!-- Ilustração SVG Dupla: Gatinho Preto & Gatinho Branco -->
+                            <svg class="w-16 h-14 flex-shrink-0" viewBox="0 0 120 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Gatinho Preto (Esquerda) -->
+                                <g>
+                                    <!-- Corpo Gato Preto -->
+                                    <path d="M26 78C26 56 34 44 45 44C55 44 60 56 60 78H26Z" fill="#111113" stroke="#71717A" stroke-width="1.5"/>
+                                    <!-- Cabeça Gato Preto -->
+                                    <circle cx="44" cy="34" r="14" fill="#111113" stroke="#71717A" stroke-width="1.5"/>
+                                    <!-- Orelhas Gato Preto -->
+                                    <path d="M32 26L30 12L41 21Z" fill="#111113" stroke="#71717A" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <path d="M56 26L58 12L47 21Z" fill="#111113" stroke="#71717A" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <!-- Olhinhos fechados serenos (Brancos) -->
+                                    <path d="M37 34C38.5 36 41 36 42.5 34" stroke="#FAF9F5" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M46.5 34C48 36 50.5 36 52 34" stroke="#FAF9F5" stroke-width="1.8" stroke-linecap="round"/>
+                                    <!-- Rabinho entrelaçado formando metade de coração -->
+                                    <path d="M28 75C14 72 12 52 24 46" stroke="#111113" stroke-width="4.5" stroke-linecap="round"/>
+                                </g>
+                                <!-- Gatinho Branco (Direita) -->
+                                <g>
+                                    <!-- Corpo Gato Branco -->
+                                    <path d="M56 78C56 58 63 46 74 46C85 46 92 58 92 78H56Z" fill="#FAF9F5" stroke="#111113" stroke-width="1.8"/>
+                                    <!-- Cabeça Gato Branco -->
+                                    <circle cx="74" cy="36" r="13.5" fill="#FAF9F5" stroke="#111113" stroke-width="1.8"/>
+                                    <!-- Orelhas Gato Branco -->
+                                    <path d="M62 28L61 14L71 23Z" fill="#FAF9F5" stroke="#111113" stroke-width="1.8" stroke-linejoin="round"/>
+                                    <path d="M86 28L87 14L77 23Z" fill="#FAF9F5" stroke="#111113" stroke-width="1.8" stroke-linejoin="round"/>
+                                    <!-- Olhinhos fechados serenos (Pretos) -->
+                                    <path d="M67 36C68.5 38 71 38 72.5 36" stroke="#111113" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M76 36C77.5 38 80 38 81.5 36" stroke="#111113" stroke-width="1.8" stroke-linecap="round"/>
+                                    <!-- Rabinho Branco completando a harmonia -->
+                                    <path d="M90 75C104 72 106 52 94 46" stroke="#111113" stroke-width="5.5" stroke-linecap="round"/>
+                                    <path d="M90 75C104 72 106 52 94 46" stroke="#FAF9F5" stroke-width="3.2" stroke-linecap="round"/>
+                                </g>
+                                <!-- Pequeno coração minimalista entre eles -->
+                                <path d="M59 16C59 13.5 56.5 12 54.5 13.5C52.5 12 50 13.5 50 16C50 19.5 54.5 22 54.5 22C54.5 22 59 19.5 59 16Z" fill="currentColor" opacity="0.75"/>
+                            </svg>
+                            <div class="pr-1">
+                                <span class="text-xs font-semibold uppercase tracking-wider block">Luz & Sombra</span>
+                                <span class="text-xs theme-muted-primary block">Equilíbrio emocional</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         DIVISOR DE SEÇÃO COM SILHUETA DE GATINHO ESPREGUIÇANDO
+         ========================================================================== -->
+    <div class="theme-section-primary relative pt-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 flex items-end justify-between">
+            <!-- Trilha de patinhas sutis à esquerda -->
+            <div class="flex items-center gap-6 pb-3 opacity-40">
+                <svg class="w-4 h-4 rotate-12" viewBox="0 0 24 24" fill="currentColor"><circle cx="7" cy="7" r="2"/><circle cx="12" cy="5.5" r="2"/><circle cx="17" cy="7" r="2"/><path d="M12 10c-3 0-5 2-5 4.5S9.5 18 12 18s5-1 5-3.5S15 10 12 10z"/></svg>
+                <svg class="w-4 h-4 -rotate-6 -translate-y-2" viewBox="0 0 24 24" fill="currentColor"><circle cx="7" cy="7" r="2"/><circle cx="12" cy="5.5" r="2"/><circle cx="17" cy="7" r="2"/><path d="M12 10c-3 0-5 2-5 4.5S9.5 18 12 18s5-1 5-3.5S15 10 12 10z"/></svg>
+                <svg class="w-4 h-4 rotate-12" viewBox="0 0 24 24" fill="currentColor"><circle cx="7" cy="7" r="2"/><circle cx="12" cy="5.5" r="2"/><circle cx="17" cy="7" r="2"/><path d="M12 10c-3 0-5 2-5 4.5S9.5 18 12 18s5-1 5-3.5S15 10 12 10z"/></svg>
+            </div>
+
+            <!-- Silhueta de Gatinho Espreguiçando na transição para a seção escura -->
+            <svg class="w-28 sm:w-36 h-16 translate-y-[2px]" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Rabo alto curvado -->
+                <path d="M32 62C18 48 16 22 28 14C34 10 38 16 34 22" stroke="var(--sec-secondary-bg)" stroke-width="7" stroke-linecap="round"/>
+                <!-- Corpo arqueado espreguiçando -->
+                <path d="M30 78L35 52C38 40 52 44 68 54L102 68L130 74C135 75 135 79 130 79H30Z" fill="var(--sec-secondary-bg)"/>
+                <!-- Cabeça baixa alongando -->
+                <circle cx="105" cy="58" r="12" fill="var(--sec-secondary-bg)"/>
+                <!-- Orelhinhas -->
+                <path d="M98 49L95 37L105 46Z" fill="var(--sec-secondary-bg)"/>
+                <path d="M108 49L112 37L115 48Z" fill="var(--sec-secondary-bg)"/>
+            </svg>
+        </div>
+        <div style="background-color: var(--sec-secondary-bg);" class="h-3 w-full"></div>
+    </div>
+
+    <!-- ==========================================================================
+         SEÇÃO 2: SOBRE MIM & ESPECIALIDADES (FUNDO SECUNDÁRIO ALTERNADO)
+         ========================================================================== -->
+    <section id="sobre" class="theme-section-secondary py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-6xl mx-auto space-y-20">
+            
+            <!-- Parte 1: Sobre a Psicóloga -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-item">
+                
+                <!-- Ilustração Conceitual Yin-Yang de Gatinhos (4 colunas) -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="theme-card-secondary p-8 sm:p-10 rounded-3xl w-full max-w-md flex flex-col items-center text-center relative overflow-hidden group">
+                        
+                        <!-- Círculo de Respiração e Harmonia com Dois Gatinhos -->
+                        <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-current/20 flex items-center justify-center relative my-2 animate-breathe-delayed">
+                            <svg class="w-44 h-44 sm:w-52 sm:h-52" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4"/>
+                                <!-- Gato Escuro (Topo/Esquerda curvado) -->
+                                <path d="M100 18C54.7 18 18 54.7 18 100C18 128 35 148 56 148C78 148 88 125 100 100C112 75 125 52 100 18Z" fill="currentColor"/>
+                                <!-- Orelhas Gato Escuro -->
+                                <path d="M68 32L56 14L82 24Z" fill="currentColor"/>
+                                <path d="M92 22L94 8L108 22Z" fill="currentColor"/>
+                                <!-- Olho calmo no Gato Escuro -->
+                                <circle cx="76" cy="48" r="4.5" fill="var(--sec-secondary-surface)"/>
+
+                                <!-- Gato Claro (Base/Direita curvado em contorno) -->
+                                <path d="M100 182C145.3 182 182 145.3 182 100C182 72 165 52 144 52C122 52 112 75 100 100" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <!-- Orelhas Gato Claro -->
+                                <path d="M132 168L144 186L118 176" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                                <circle cx="126" cy="150" r="4.5" fill="currentColor"/>
+                            </svg>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-semibold mt-4">A Filosofia do Acolhimento</h3>
+                        <p class="theme-muted-secondary text-sm leading-relaxed mt-2">
+                            Na psicologia, não buscamos apagar nossas sombras, mas compreendê-las com gentileza para que possamos viver com mais inteireza e autenticidade.
+                        </p>
+
+                        <!-- Botão de Exercício Rápido de Respiração Guiada -->
+                        <button onclick="startBreathingExercise()" id="breathingBtn" class="mt-6 w-full py-3 px-4 rounded-xl border border-current/30 text-xs sm:text-sm font-medium hover:bg-current/10 flex items-center justify-center gap-2">
+                            <span id="breathingDot" class="w-2.5 h-2.5 rounded-full bg-current animate-ping"></span>
+                            <span id="breathingText">Fazer uma pausa de respiração (30s)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trajetória e Formação (7 colunas) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest opacity-70">
+                        <span>Sobre Mim & Trajetória</span>
+                        <span>•</span>
+                        <span>Ética e Empatia</span>
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+                        Um espaço pensado para que você se sinta em casa dentro de si.
+                    </h2>
+
+                    <div class="space-y-4 theme-muted-secondary text-base leading-relaxed">
+                        <p>
+                            Olá! Sou <strong class="text-current font-semibold" id="aboutPsiName">Dra. Camili Ribeiro</strong>, psicóloga clínica graduada pela Universidade NOME DA UNIVERDIDADE, com especialização em Terapia Cognitivo-Comportamental e formação continuada em abordagens humanistas focadas na regulação emocional.
+                        </p>
+                        <p>
+                            Ao longo da minha trajetória clínica, percebi que muitas pessoas chegam à terapia exaustas de tentar dar conta de tudo sozinhas. Meu trabalho consiste em oferecer uma escuta qualificada, livre de julgamentos, unindo ferramentas científicas práticas à sensibilidade humana.
+                        </p>
+                        <p>
+                            Assim como os gatinhos que inspiram este espaço, acredito que cada pessoa tem seu próprio tempo para criar confiança, se abrir e florescer. Seja no consultório presencial ou no conforto da sua casa pelo atendimento online, caminharemos juntos no seu ritmo.
+                        </p>
+                    </div>
+
+                    <!-- Indicadores / Pilares do Atendimento -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="theme-card-secondary p-4 rounded-2xl">
+                            <span class="font-serif text-2xl font-bold block">Sigilo Absoluto</span>
+                            <span class="text-xs theme-muted-secondary mt-1 block">Ética profissional rigorosa segundo o Conselho Federal de Psicologia.</span>
+                        </div>
+                        <div class="theme-card-secondary p-4 rounded-2xl">
+                            <span class="font-serif text-2xl font-bold block">Escuta Ativa</span>
+                            <span class="text-xs theme-muted-secondary mt-1 block">Diálogo genuíno, acolhedor e adaptado à sua singularidade.</span>
+                        </div>
+                        <div class="theme-card-secondary p-4 rounded-2xl">
+                            <span class="font-serif text-2xl font-bold block">Sem Fronteiras</span>
+                            <span class="text-xs theme-muted-secondary mt-1 block">Atendimento a brasileiros em qualquer lugar do mundo via internet.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parte 2: Especialidades e Áreas de Atuação -->
+            <div id="especialidades" class="pt-8 space-y-10 reveal-item">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-current/15 pb-6">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest opacity-70 block mb-2">Como posso te ajudar</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl font-semibold">Especialidades & Foco Clínico</h3>
+                    </div>
+                    <p class="theme-muted-secondary text-sm max-w-md">
+                        Passe o mouse sobre os cards para ver os detalhes de cada área (e reparar nas orelhinhas felinas sutis).
+                    </p>
+                </div>
+
+                <!-- Grid de Cards de Especialidades com Orelhinhas no Hover -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+                    
+                    <!-- Card 1 -->
+                    <div class="cat-ear-card theme-card-secondary p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1.5">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110">
+                                <!-- Ícone Mente Calma / Gatinho Dormindo -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-serif text-2xl font-semibold">Ansiedade & Estresse</h4>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Estratégias para desacelerar pensamentos intrusivos, lidar com a sobrecarga mental, perfeccionismo e recuperar a qualidade do seu descanso.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
+                            <span>Regulação emocional</span>
+                            <span>🐾</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="cat-ear-card theme-card-secondary p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1.5">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110">
+                                <!-- Ícone Espelho / Autoconhecimento -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-serif text-2xl font-semibold">Autoconhecimento</h4>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Compreensão da própria história, fortalecimento da autoestima, integração de luz e sombra e alinhamento com seus valores pessoais.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
+                            <span>Identidade & Propósito</span>
+                            <span>🐾</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="cat-ear-card theme-card-secondary p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1.5">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110">
+                                <!-- Ícone Vínculos -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-serif text-2xl font-semibold">Relacionamentos & Limites</h4>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Assim como os gatos sabem dizer "não" com elegância, aprenda a estabelecer limites saudáveis nas relações afetivas, familiares e no trabalho.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
+                            <span>Vínculos saudáveis</span>
+                            <span>🐾</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="cat-ear-card theme-card-secondary p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1.5">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110">
+                                <!-- Ícone Online / Discord & Meet -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-serif text-2xl font-semibold">Terapia Online & Discord</h4>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Sessões acolhedoras em sala privada via Discord ou Google Meet, garantindo conforto acústico, privacidade e flexibilidade de horários.
+                            </p>
+                        </div>
+                        <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
+                            <span>Conforto & Privacidade</span>
+                            <span>🐾</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         DIVISOR DE SEÇÃO COM GATINHO CAMINHANDO SERENAMENTE
+         ========================================================================== -->
+    <div class="theme-section-secondary relative pt-4 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 flex items-end justify-between">
+            <!-- Silhueta de Gatinho sentado observando -->
+            <svg class="w-24 h-16 translate-y-[2px]" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35 79C35 54 44 42 58 42C72 42 80 54 80 79H35Z" fill="var(--sec-primary-bg)"/>
+                <circle cx="58" cy="28" r="14" fill="var(--sec-primary-bg)"/>
+                <path d="M46 20L44 7L54 16Z" fill="var(--sec-primary-bg)"/>
+                <path d="M70 20L72 7L62 16Z" fill="var(--sec-primary-bg)"/>
+                <path d="M78 75C92 72 98 56 90 46" stroke="var(--sec-primary-bg)" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <span class="text-xs opacity-50 pb-3 italic font-serif">Escolha o melhor momento para você</span>
+        </div>
+        <div style="background-color: var(--sec-primary-bg);" class="h-3 w-full"></div>
+    </div>
+
+    <!-- ==========================================================================
+         SEÇÃO 3: AGENDA INTERATIVA DE CONSULTAS (FUNDO PRIMÁRIO ALTERNADO)
+         ========================================================================== -->
+    <section id="agenda" class="theme-section-primary py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-6xl mx-auto space-y-12 reveal-item">
+            
+            <!-- Cabeçalho da Agenda -->
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-current/20 text-xs uppercase tracking-widest">
+                    <span>Agenda Interativa</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-5xl font-semibold">Agende sua Sessão</h2>
+                <p class="theme-muted-primary text-sm sm:text-base">
+                    Selecione o dia da semana, escolha um horário disponível (Manhã, Tarde ou Noite) e confirme diretamente pelo WhatsApp ou realize seu pré-agendamento imediato.
+                </p>
+            </div>
+
+            <!-- Painel Principal da Agenda (Grid 12 Colunas) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Coluna Esquerda: Seleção de Dia e Horários (7 Colunas) -->
+                <div class="lg:col-span-7 theme-card-primary p-6 sm:p-8 rounded-3xl shadow-sm space-y-8">
+                    
+                    <!-- Etapa 1: Escolha o Dia da Semana / Data -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider opacity-75">1. Escolha o Dia</span>
+                            <span id="currentMonthLabel" class="text-xs font-mono opacity-70">Próximos dias disponíveis</span>
+                        </div>
+
+                        <!-- Carrossel/Grid de Dias -->
+                        <div id="daysGridContainer" class="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
+                            <!-- Gerado dinamicamente via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Etapa 2: Escolha o Horário (Manhã, Tarde, Noite) -->
+                    <div class="space-y-5 pt-2 border-t border-current/10">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-xs font-semibold uppercase tracking-wider opacity-75">2. Escolha o Horário Disponível</span>
+                            <div class="flex items-center gap-4 text-xs">
+                                <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full border border-current inline-block"></span> Livre</span>
+                                <span class="flex items-center gap-1.5 opacity-40"><span class="w-2.5 h-2.5 rounded-full bg-current inline-block"></span> Ocupado</span>
+                            </div>
+                        </div>
+
+                        <!-- Container de Turnos (Manhã, Tarde, Noite) -->
+                        <div id="timeSlotsContainer" class="space-y-6">
+                            <!-- Gerado dinamicamente via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Informação complementar rodapé do calendário -->
+                    <div class="p-4 rounded-2xl border border-current/15 flex items-start gap-3 text-xs theme-muted-primary">
+                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div>
+                            <p class="font-medium text-current">Duração da sessão: 50 minutos.</p>
+                            <p id="agendaFooterInfo" class="mt-0.5">Atendimento particular e emissão de recibo para reembolso em planos de saúde. Caso precise de um horário especial, chame no WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Dados do Paciente e Confirmação (5 Colunas) -->
+                <div class="lg:col-span-5 theme-card-primary p-6 sm:p-8 rounded-3xl shadow-sm space-y-6 relative">
+                    
+                    <!-- Ilustração Gatinho no Topo do Card de Resumo -->
+                    <div class="flex items-center justify-between border-b border-current/10 pb-4">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider opacity-70 block">3. Seus Dados</span>
+                            <h3 class="font-serif text-2xl font-semibold">Resumo do Agendamento</h3>
+                        </div>
+                        <!-- Gatinho minimalista espiando -->
+                        <svg class="w-12 h-12" viewBox="0 0 60 60" fill="none">
+                            <path d="M14 48C14 34 21 26 30 26C39 26 46 34 46 48" fill="currentColor"/>
+                            <path d="M18 30L15 16L26 25Z" fill="currentColor"/>
+                            <path d="M42 30L45 16L34 25Z" fill="currentColor"/>
+                            <circle cx="25" cy="36" r="2.2" fill="var(--sec-primary-surface)"/>
+                            <circle cx="35" cy="36" r="2.2" fill="var(--sec-primary-surface)"/>
+                            <line x1="8" y1="48" x2="52" y2="48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Resumo Visual da Data e Horário Selecionados -->
+                    <div class="p-4 rounded-2xl border border-current/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs opacity-70 block">Dia e Horário selecionados:</span>
+                            <span id="summaryDateTimeDisplay" class="font-serif text-xl font-semibold block mt-0.5">Selecione um horário ao lado</span>
+                        </div>
+                        <span id="summaryStatusBadge" class="px-3 py-1 rounded-full text-xs font-medium border border-current/30">
+                            Aguardando
+                        </span>
+                    </div>
+
+                    <!-- Formulário do Paciente -->
+                    <div class="space-y-4">
+                        <div>
+                            <label for="patientNameInput" class="block text-xs font-semibold uppercase tracking-wider mb-2">Seu Nome (ou como prefere ser chamado)</label>
+                            <input type="text" id="patientNameInput" placeholder="Ex: Mariana Silva" 
+                                   style="background-color: var(--sec-primary-bg); color: var(--sec-primary-text); border-color: var(--sec-primary-border);"
+                                   class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-current">
+                        </div>
+
+                        <div>
+                            <label for="modalitySelect" class="block text-xs font-semibold uppercase tracking-wider mb-2">Modalidade de Atendimento</label>
+                            <select id="modalitySelect" onchange="updateAppointmentSummary()"
+                                    style="background-color: var(--sec-primary-bg); color: var(--sec-primary-text); border-color: var(--sec-primary-border);"
+                                    class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-current">
+                                <option value="Online via Discord (Sala Privada)">Online via Discord (Sala Privada)</option>
+                                <option value="Online via Google Meet (Vídeo)">Online via Google Meet (Vídeo)</option>
+                                <option value="Online via WhatsApp Vídeo">Online via WhatsApp Vídeo</option>
+                                <option value="Presencial (Consultório)">Presencial (Consultório)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="patientNotesInput" class="block text-xs font-semibold uppercase tracking-wider mb-2">Breve motivo ou preferência (Opcional)</label>
+                            <textarea id="patientNotesInput" rows="2" placeholder="Ex: Primeira sessão, preferência por conversa inicial..."
+                                      style="background-color: var(--sec-primary-bg); color: var(--sec-primary-text); border-color: var(--sec-primary-border);"
+                                      class="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-current resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Aviso de Validação Suave (sem alert) -->
+                    <div id="bookingFeedbackBox" class="hidden p-4 rounded-2xl border border-current text-xs sm:text-sm space-y-2">
+                        <p id="bookingFeedbackText" class="font-medium"></p>
+                    </div>
+
+                    <!-- Botões de Confirmação -->
+                    <div class="space-y-3 pt-2">
+                        <button onclick="confirmViaWhatsApp()" class="theme-btn-primary w-full py-4 px-5 rounded-2xl font-medium text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-md hover:opacity-90 active:scale-[0.99]">
+                            <!-- Ícone WhatsApp SVG -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.124.556 4.119 1.528 5.848l-1.528 5.579 5.724-1.501c1.693.924 3.633 1.451 5.699 1.451 6.627 0 12-5.373 12-12 0-6.627-5.373-12-11.423-12z"/>
+                            </svg>
+                            <span>Confirmar e Enviar pelo WhatsApp</span>
+                        </button>
+
+                        <button onclick="copyAppointmentSummary()" class="theme-btn-outline-primary w-full py-3.5 px-5 rounded-2xl font-medium text-xs sm:text-sm flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Reservar Horário Aqui e Copiar Comprovante</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO 4: HUB DE LINKS E REDES SOCIAIS (WHATSAPP, INSTAGRAM, LINKEDIN, DISCORD)
+         ========================================================================== -->
+    <section id="canais" class="theme-section-secondary py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-6xl mx-auto space-y-14 reveal-item">
+            
+            <!-- Cabeçalho da Seção de Links -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest opacity-70">
+                        <span>Conecte-se Comigo</span>
+                        <span>•</span>
+                        <span>Canais Oficiais</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-semibold">Redes Sociais & Atendimento</h2>
+                </div>
+                <p class="theme-muted-secondary text-sm sm:text-base max-w-md">
+                    Acompanhe reflexões diárias sobre saúde mental, conheça minha trajetória profissional ou acesse nossa sala de acolhimento online.
+                </p>
+            </div>
+
+            <!-- Grid dos 4 Canais Principais (WhatsApp, Instagram, LinkedIn, Discord) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- 1. WHATSAPP CARD -->
+                <a id="cardWhatsappLink" href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" 
+                   class="cat-ear-card theme-card-secondary p-6 sm:p-8 rounded-3xl flex items-start justify-between gap-5 group hover:-translate-y-1.5">
+                    <div class="flex items-start gap-5">
+                        <div class="w-14 h-14 rounded-2xl border border-current/25 flex items-center justify-center flex-shrink-0 group-hover:bg-current group-hover:text-[var(--sec-secondary-bg)]">
+                            <!-- Ícone WhatsApp SVG Nítido -->
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.124.556 4.119 1.528 5.848l-1.528 5.579 5.724-1.501c1.693.924 3.633 1.451 5.699 1.451 6.627 0 12-5.373 12-12 0-6.627-5.373-12-11.423-12z"/>
+                            </svg>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-serif text-2xl font-semibold">WhatsApp</h3>
+                                <span class="text-[11px] px-2.5 py-0.5 rounded-full border border-current/25 uppercase tracking-wider">Resposta Rápida</span>
+                            </div>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Tire dúvidas sobre como funciona a primeira sessão, valores, reembolso de convênio e agendamentos diretos.
+                            </p>
+                            <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">
+                                Iniciar conversa agora →
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 2. INSTAGRAM CARD -->
+                <a id="cardInstagramLink" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" 
+                   class="cat-ear-card theme-card-secondary p-6 sm:p-8 rounded-3xl flex items-start justify-between gap-5 group hover:-translate-y-1.5">
+                    <div class="flex items-start gap-5">
+                        <div class="w-14 h-14 rounded-2xl border border-current/25 flex items-center justify-center flex-shrink-0 group-hover:bg-current group-hover:text-[var(--sec-secondary-bg)]">
+                            <!-- Ícone Instagram SVG Nítido -->
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-serif text-2xl font-semibold">Instagram</h3>
+                                <span id="cardInstagramHandle" class="text-xs font-mono opacity-70">@psi.helenavasconcelos</span>
+                            </div>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Conteúdos semanais sobre psicologia, autocuidado, regulação emocional e reflexões ilustradas com nossos gatinhos.
+                            </p>
+                            <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">
+                                Acompanhar conteúdos →
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3. LINKEDIN CARD -->
+                <a id="cardLinkedinLink" href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" 
+                   class="cat-ear-card theme-card-secondary p-6 sm:p-8 rounded-3xl flex items-start justify-between gap-5 group hover:-translate-y-1.5">
+                    <div class="flex items-start gap-5">
+                        <div class="w-14 h-14 rounded-2xl border border-current/25 flex items-center justify-center flex-shrink-0 group-hover:bg-current group-hover:text-[var(--sec-secondary-bg)]">
+                            <!-- Ícone LinkedIn SVG Nítido -->
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-serif text-2xl font-semibold">LinkedIn</h3>
+                                <span id="cardLinkedinHandle" class="text-xs font-mono opacity-70">/in/helena-vasconcelos-psi</span>
+                            </div>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Trajetória acadêmica, artigos sobre saúde mental no ambiente corporativo, palestras e rede profissional.
+                            </p>
+                            <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">
+                                Conectar no LinkedIn →
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 4. DISCORD CARD -->
+                <a id="cardDiscordLink" href="https://discord.com/" target="_blank" rel="noopener noreferrer" 
+                   class="cat-ear-card theme-card-secondary p-6 sm:p-8 rounded-3xl flex items-start justify-between gap-5 group hover:-translate-y-1.5">
+                    <div class="flex items-start gap-5">
+                        <div class="w-14 h-14 rounded-2xl border border-current/25 flex items-center justify-center flex-shrink-0 group-hover:bg-current group-hover:text-[var(--sec-secondary-bg)]">
+                            <!-- Ícone Discord SVG Nítido -->
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                            </svg>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-serif text-2xl font-semibold">Discord</h3>
+                                <span id="cardDiscordHandle" class="text-[11px] px-2.5 py-0.5 rounded-full border border-current/25">Consultório Virtual</span>
+                            </div>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">
+                                Sala privada com criptografia e áudio nítido para atendimentos online, além de canal de materiais terapêuticos.
+                            </p>
+                            <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">
+                                Acessar Sala no Discord →
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Barra de Localização Presencial & Copiar Contato -->
+            <div class="theme-card-secondary p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl border border-current/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider opacity-70 block">Consultório Presencial & Atendimento Global Online</span>
+                        <p id="footerAddressText" class="font-serif text-xl font-medium"> R. Chiden Kalil, 428 - Jardim Santa Helena, Bocaiúva do Sul - PR, 83453-054</p>
+                    </div>
+                </div>
+
+                <button onclick="copyContactCard()" id="copyCardBtn" class="theme-btn-outline-secondary px-5 py-3 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 flex-shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    <span id="copyCardBtnText">Copiar Cartão de Contato</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         RODAPÉ COM MENSAGEM DE PREVENÇÃO E ILUSTRAÇÃO DE GATINHOS DORMINDO
+         ========================================================================== -->
+    <!-- RODAPÉ -->
+<footer class="theme-section-primary py-12 px-4 sm:px-6 lg:px-8 border-t border-current/10 relative overflow-hidden">
+    
+    <!-- COLE AS PATINHAS AQUI EM CIMA (elas vão subir no fundo, sem atrapalhar o texto) -->
+    <span class="footer-paw-effect" style="left: 10%; bottom: 10px; animation-delay: 0s;">🐾</span>
+    <span class="footer-paw-effect" style="left: 35%; bottom: 5px; animation-delay: 1.5s;">🐾</span>
+    <span class="footer-paw-effect" style="left: 65%; bottom: 12px; animation-delay: 0.8s;">🐾</span>
+    <span class="footer-paw-effect" style="left: 88%; bottom: 8px; animation-delay: 2.2s;">🐾</span>
+
+    <!-- SEU CONTEÚDO ORIGINAL CONTINUA INTEIRINHO AQUI EMBAIXO -->
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left relative z-10">
+        
+        <div class="flex items-center gap-3">
+            <!-- Gatinho dormindo -->
+            <svg class="w-10 h-10 opacity-85" viewBox="0 0 60 60" fill="none">
+                <path d="M12 38C12 24 24 18 36 22C46 25 50 35 46 42C42 48 22 48 12 38Z" fill="currentColor"/>
+                <path d="M18 26L15 16L24 22Z" fill="currentColor"/>
+                <path d="M26 24L27 14L33 22Z" fill="currentColor"/>
+                <path d="M44 42C52 42 54 34 48 30" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+                <p class="font-serif text-lg font-semibold" id="footerPsiName">Dra. Camili Ribeiro • Psicóloga Clínica</p>
+                <p class="text-xs theme-muted-primary">© 2026 Todos os direitos reservados • Equilíbrio & Saúde Mental</p>
+            </div>
+        </div>
+
+        <div class="text-xs theme-muted-primary max-w-md md:text-right">
+            <p><strong>Atenção:</strong> Este site não oferece atendimento de emergência imediata. Em caso de crise emocional grave, ligue gratuitamente para o <strong>CVV (188)</strong> ou procure o serviço de saúde mais próximo.</p>
+        </div>
+
+    </div>
+</footer>
+
+    <!-- ==========================================================================
+         JAVASCRIPT: AGENDA INTERATIVA, TEMA PRETO/BRANCO, ANIMAÇÕES E PARTÍCULAS
+         ========================================================================== -->
+    <script>
+        /* --------------------------------------------------------------------------
+           1. INICIALIZAÇÃO DOS DADOS PERSONALIZÁVEIS
+           -------------------------------------------------------------------------- */
+        function applyPsychologistConfig() {
+            document.getElementById('navPsiName').textContent = CONFIG_PSICOLOGA.nome;
+            document.getElementById('navPsiCrp').textContent = CONFIG_PSICOLOGA.crp;
+            document.getElementById('heroPsiName').textContent = CONFIG_PSICOLOGA.nome;
+            document.getElementById('heroPsiCrp').textContent = CONFIG_PSICOLOGA.crp;
+            document.getElementById('heroBadgeAbordagem').textContent = CONFIG_PSICOLOGA.abordagem;
+            document.getElementById('heroWelcomeText').textContent = CONFIG_PSICOLOGA.fraseAcolhimento;
+            document.getElementById('aboutPsiName').textContent = CONFIG_PSICOLOGA.nome;
+            document.getElementById('footerPsiName').textContent = `${CONFIG_PSICOLOGA.nome} • ${CONFIG_PSICOLOGA.crp}`;
+            document.getElementById('psiProfileImg').src = CONFIG_PSICOLOGA.fotoUrl;
+            document.getElementById('agendaFooterInfo').textContent = CONFIG_PSICOLOGA.valorInfo;
+            document.getElementById('footerAddressText').textContent = CONFIG_PSICOLOGA.enderecoPresencial;
+
+            // Atualizar Links Sociais
+            const defaultWppMsg = encodeURIComponent(`Olá, ${CONFIG_PSICOLOGA.nome}! Vim pelo seu site e gostaria de saber mais sobre as sessões de psicoterapia.`);
+            const wppUrl = `https://wa.me/${CONFIG_PSICOLOGA.whatsappNumero}?text=${defaultWppMsg}`;
+            document.getElementById('heroWhatsappBtn').href = wppUrl;
+            document.getElementById('cardWhatsappLink').href = wppUrl;
+
+            document.getElementById('cardInstagramLink').href = CONFIG_PSICOLOGA.instagramUrl;
+            document.getElementById('cardInstagramHandle').textContent = CONFIG_PSICOLOGA.instagramUser;
+
+            document.getElementById('cardLinkedinLink').href = CONFIG_PSICOLOGA.linkedinUrl;
+            document.getElementById('cardLinkedinHandle').textContent = CONFIG_PSICOLOGA.linkedinUser;
+
+            document.getElementById('cardDiscordLink').href = CONFIG_PSICOLOGA.discordUrl;
+            document.getElementById('cardDiscordHandle').textContent = CONFIG_PSICOLOGA.discordUser;
+        }
+
+        /* --------------------------------------------------------------------------
+           2. ALTERNÂNCIA DE TEMA: "MODO GATO BRANCO" <-> "MODO GATO PRETO"
+           -------------------------------------------------------------------------- */
+        let isBlackCatMode = false;
+
+        function toggleCatTheme() {
+            isBlackCatMode = !isBlackCatMode;
+            document.body.classList.toggle('black-cat-mode', isBlackCatMode);
+            
+            const label = document.getElementById('themeToggleLabel');
+            if (isBlackCatMode) {
+                label.textContent = 'Modo Gato Preto';
+            } else {
+                label.textContent = 'Modo Gato Branco';
+            }
+        }
+
+        function toggleMobileMenu() {
+            const panel = document.getElementById('mobileMenuPanel');
+            panel.classList.toggle('hidden');
+        }
+
+        /* --------------------------------------------------------------------------
+           3. INTERAÇÃO DE ACARICIAR OS GATINHOS & PAUSA DE RESPIRAÇÃO
+           -------------------------------------------------------------------------- */
+        let purrCount = 0;
+        const purrMessages = [
+            "Prrr... Os gatinhos agradeceram o carinho 🐾",
+            "Respire fundo... Tudo no seu próprio tempo 🤍",
+            "Luz e sombra em perfeita harmonia 🖤🤍",
+            "Ronrom suave ativado para acalmar seu dia ✨",
+            "Até os gatinhos sabem a hora de descansar 🐈‍⬛"
+        ];
+
+        function petTheCats() {
+            purrCount++;
+            document.getElementById('purrCounterBadge').textContent = `ronrom: ${purrCount}`;
+            document.getElementById('purrStatusText').textContent = purrMessages[purrCount % purrMessages.length];
+
+            // Criar coração/patinha flutuante
+            const container = document.getElementById('floatingPurrContainer');
+            const el = document.createElement('div');
+            const symbols = ['🐾', '🤍', '🖤', '✨'];
+            el.textContent = symbols[purrCount % symbols.length];
+            el.style.position = 'absolute';
+            el.style.left = `${20 + Math.random() * 50}%`;
+            el.style.bottom = '15%';
+            el.style.fontSize = '1.35rem';
+            el.style.animation = 'floatHeart 1.8s ease-out forwards';
+            container.appendChild(el);
+
+            setTimeout(() => {
+                if (el.parentNode) el.parentNode.removeChild(el);
+            }, 1850);
+        }
+
+        let breathingInterval = null;
+        function startBreathingExercise() {
+            const textEl = document.getElementById('breathingText');
+            if (breathingInterval) {
+                clearInterval(breathingInterval);
+                breathingInterval = null;
+                textEl.textContent = "Fazer uma pausa de respiração (30s)";
+                return;
+            }
+
+            let step = 0;
+            const phases = [
+                "Inspire suavemente pelo nariz... (4s)",
+                "Segure o ar com calma... (4s)",
+                "Solte o ar devagar pela boca... (6s)",
+                "Sinta os ombros relaxarem... 🐾"
+            ];
+            textEl.textContent = phases[0];
+
+            breathingInterval = setInterval(() => {
+                step++;
+                if (step >= 6) {
+                    clearInterval(breathingInterval);
+                    breathingInterval = null;
+                    textEl.textContent = "Pausa concluída! Clique para repetir 🤍";
+                } else {
+                    textEl.textContent = phases[step % phases.length];
+                }
+            }, 4200);
+        }
+
+        /* --------------------------------------------------------------------------
+           4. AGENDA INTERATIVA DE CONSULTAS
+           -------------------------------------------------------------------------- */
+        const daysOfWeekShort = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+        const monthsShort = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+        // Estrutura de horários por turno
+        const scheduleTemplate = {
+            "Manhã": ["08:00", "09:00", "10:00", "11:00"],
+            "Tarde": ["14:00", "15:00", "16:00", "17:00"],
+            "Noite": ["18:00", "19:00", "20:00"]
+        };
+
+        let availableDays = [];
+        let selectedDayIndex = 0;
+        let selectedTimeSlot = null;
+        // Horários ocupados simulados + agendados pelo usuário na sessão
+        /*let bookedSlotsMap = {
+            "0": ["09:00", "15:00", "19:00"],
+            "1": ["10:00", "14:00"],
+            "2": ["08:00", "16:00", "18:00"],
+            "3": ["11:00", "15:00"],
+            "4": ["09:00", "17:00", "20:00"],
+            "5": ["10:00", "11:00", "14:00"]
+        };*/
+
+        function generateUpcomingDays() {
+            availableDays = [];
+            let dateCursor = new Date();
+            let added = 0;
+
+            while (added < 6) {
+                dateCursor.setDate(dateCursor.getDate() + 1);
+                // Pula domingo (0)
+                if (dateCursor.getDay() !== 0) {
+                    availableDays.push({
+                        dayName: daysOfWeekShort[dateCursor.getDay()],
+                        dayNumber: String(dateCursor.getDate()).padStart(2, '0'),
+                        monthName: monthsShort[dateCursor.getMonth()],
+                        fullLabel: `${daysOfWeekShort[dateCursor.getDay()]}, ${String(dateCursor.getDate()).padStart(2, '0')} de ${monthsShort[dateCursor.getMonth()]}`
+                    });
+                    added++;
+                }
+            }
+        }
+
+        //Função nova para teste
+       function renderDaysGrid() {
+            const container = document.getElementById('daysGridContainer');
+            container.innerHTML = '';
+
+            availableDays.forEach((dayObj, idx) => {
+                const isSelected = idx === selectedDayIndex;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.onclick = () => selectDay(idx); // <-- Garanta que esta linha está aqui
+                btn.className = `p-3 rounded-2xl border text-center flex flex-col items-center justify-center gap-0.5 focus:outline-none ${
+                    isSelected 
+                        ? 'theme-btn-primary shadow-md scale-[1.03]' 
+                        : 'border-current/20 hover:border-current/60 opacity-80 hover:opacity-100'
+                }`;
+                btn.innerHTML = `
+                    <span class="text-[11px] uppercase tracking-wider opacity-75">${dayObj.dayName}</span>
+                    <span class="font-serif text-2xl font-bold leading-none my-0.5">${dayObj.dayNumber}</span>
+                    <span class="text-[10px] uppercase opacity-70">${dayObj.monthName}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function renderTimeSlots() {
+            const container = document.getElementById('timeSlotsContainer');
+            container.innerHTML = '';
+
+            Object.keys(scheduleTemplate).forEach(periodName => {
+                const slots = scheduleTemplate[periodName];
+                const periodWrapper = document.createElement('div');
+                periodWrapper.className = 'space-y-2.5';
+
+                const periodHeader = document.createElement('div');
+                periodHeader.className = 'flex items-center gap-2 text-xs font-medium opacity-75';
+                periodHeader.innerHTML = `<span>• ${periodName}</span>`;
+                periodWrapper.appendChild(periodHeader);
+
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-2 sm:grid-cols-4 gap-2.5';
+
+                slots.forEach(timeStr => {
+                    const isSelected = selectedTimeSlot === timeStr;
+
+                    const slotBtn = document.createElement('button');
+                    slotBtn.type = 'button';
+                    slotBtn.onclick = () => selectTimeSlot(timeStr);
+                    slotBtn.className = `py-2.5 px-3 rounded-xl border text-xs sm:text-sm font-mono font-medium focus:outline-none ${
+                        isSelected
+                            ? 'theme-btn-primary shadow-md scale-[1.02]'
+                            : 'border-current/25 hover:border-current'
+                    }`;
+                    slotBtn.innerHTML = isSelected ? `🐾 ${timeStr}` : timeStr;
+                    grid.appendChild(slotBtn);
+                });
+
+                periodWrapper.appendChild(grid);
+                container.appendChild(periodWrapper);
+            });
+        }
+
+        function selectDay(idx) {
+            selectedDayIndex = idx;
+            renderDaysGrid();
+            renderTimeSlots();
+            updateAppointmentSummary();
+            hideBookingFeedback();
+        }
+
+
+        /*function renderDaysGrid() {
+            const container = document.getElementById('daysGridContainer');
+            container.innerHTML = '';
+
+            availableDays.forEach((dayObj, idx) => {
+                const isSelected = idx === selectedDayIndex;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.onclick = () => selectDay(idx);
+                btn.className = `p-3 rounded-2xl border text-center flex flex-col items-center justify-center gap-0.5 focus:outline-none ${
+                    isSelected 
+                        ? 'theme-btn-primary shadow-md scale-[1.03]' 
+                        : 'border-current/20 hover:border-current/60 opacity-80 hover:opacity-100'
+                }`;
+                btn.innerHTML = `
+                    <span class="text-[11px] uppercase tracking-wider opacity-75">${dayObj.dayName}</span>
+                    <span class="font-serif text-2xl font-bold leading-none my-0.5">${dayObj.dayNumber}</span>
+                    <span class="text-[10px] uppercase opacity-70">${dayObj.monthName}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        function renderTimeSlots() {
+            const container = document.getElementById('timeSlotsContainer');
+            container.innerHTML = '';
+            const busyForDay = bookedSlotsMap[String(selectedDayIndex)] || [];
+
+            Object.keys(scheduleTemplate).forEach(periodName => {
+                const slots = scheduleTemplate[periodName];
+                const periodWrapper = document.createElement('div');
+                periodWrapper.className = 'space-y-2.5';
+
+                const periodHeader = document.createElement('div');
+                periodHeader.className = 'flex items-center gap-2 text-xs font-medium opacity-75';
+                periodHeader.innerHTML = `<span>• ${periodName}</span>`;
+                periodWrapper.appendChild(periodHeader);
+
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-2 sm:grid-cols-4 gap-2.5';
+
+                slots.forEach(timeStr => {
+                    const isBusy = busyForDay.includes(timeStr);
+                    const isSelected = selectedTimeSlot === timeStr;
+
+                    const slotBtn = document.createElement('button');
+                    slotBtn.type = 'button';
+                    slotBtn.disabled = isBusy;
+
+                    if (isBusy) {
+                        slotBtn.className = 'py-2.5 px-3 rounded-xl border border-current/15 text-xs font-mono opacity-35 line-through cursor-not-allowed';
+                        slotBtn.textContent = `${timeStr} • Ocupado`;
+                    } else {
+                        slotBtn.onclick = () => selectTimeSlot(timeStr);
+                        slotBtn.className = `py-2.5 px-3 rounded-xl border text-xs sm:text-sm font-mono font-medium focus:outline-none ${
+                            isSelected
+                                ? 'theme-btn-primary shadow-md scale-[1.02]'
+                                : 'border-current/25 hover:border-current'
+                        }`;
+                        slotBtn.innerHTML = isSelected ? `🐾 ${timeStr}` : timeStr;
+                    }
+                    grid.appendChild(slotBtn);
+                });
+
+                periodWrapper.appendChild(grid);
+                container.appendChild(periodWrapper);
+            });
+        }*/
+
+        /*function selectDay(idx) {
+            selectedDayIndex = idx;
+            // Se o horário selecionado estiver ocupado no novo dia, limpa
+            const busyForDay = bookedSlotsMap[String(selectedDayIndex)] || [];
+            if (selectedTimeSlot && busyForDay.includes(selectedTimeSlot)) {
+                selectedTimeSlot = null;
+            }
+            renderDaysGrid();
+            renderTimeSlots();
+            updateAppointmentSummary();
+        }*/
+
+        function selectTimeSlot(timeStr) {
+            selectedTimeSlot = timeStr;
+            renderTimeSlots();
+            updateAppointmentSummary();
+            hideBookingFeedback();
+        }
+
+        function updateAppointmentSummary() {
+            const display = document.getElementById('summaryDateTimeDisplay');
+            const badge = document.getElementById('summaryStatusBadge');
+            const dayObj = availableDays[selectedDayIndex];
+
+            if (!selectedTimeSlot) {
+                display.textContent = `${dayObj.fullLabel} • Escolha o horário`;
+                badge.textContent = "Falta horário";
+            } else {
+                display.textContent = `${dayObj.fullLabel} às ${selectedTimeSlot}`;
+                badge.textContent = "Horário selecionado";
+            }
+        }
+
+        function showBookingFeedback(message) {
+            const box = document.getElementById('bookingFeedbackBox');
+            const text = document.getElementById('bookingFeedbackText');
+            text.textContent = message;
+            box.classList.remove('hidden');
+        }
+
+        function hideBookingFeedback() {
+            document.getElementById('bookingFeedbackBox').classList.add('hidden');
+        }
+
+        function validateBookingInputs() {
+            if (!selectedTimeSlot) {
+                showBookingFeedback("🐾 Por favor, clique em um horário disponível (Manhã, Tarde ou Noite) antes de confirmar.");
+                return null;
+            }
+            const nameInput = document.getElementById('patientNameInput');
+            const patientName = nameInput.value.trim();
+            if (!patientName) {
+                showBookingFeedback("🐾 Por favor, preencha seu nome para que a psicóloga possa identificar seu agendamento.");
+                nameInput.focus();
+                return null;
+            }
+            const modality = document.getElementById('modalitySelect').value;
+            const notes = document.getElementById('patientNotesInput').value.trim();
+            const dayObj = availableDays[selectedDayIndex];
+
+            return {
+                patientName,
+                modality,
+                notes,
+                dateStr: dayObj.fullLabel,
+                timeStr: selectedTimeSlot
+            };
+        }
+
+        function confirmViaWhatsApp() {
+            const data = validateBookingInputs();
+            if (!data) return;
+
+            const notesLine = data.notes ? `\n• *Observação:* ${data.notes}` : '';
+            const message = `Olá, ${CONFIG_PSICOLOGA.nome}! 🐾\nGostaria de agendar uma sessão de psicoterapia pelo site:\n\n• *Nome:* ${data.patientName}\n• *Data:* ${data.dateStr}\n• *Horário:* ${data.timeStr}\n• *Modalidade:* ${data.modality}${notesLine}\n\nAguardo sua confirmação. Obrigado(a)!`;
+
+            const whatsappUrl = `https://wa.me/${CONFIG_PSICOLOGA.whatsappNumero}?text=${encodeURIComponent(message)}`;
+            showBookingFeedback("✨ Tudo pronto! Abrindo o WhatsApp com sua mensagem de agendamento preenchida...");
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        function copyAppointmentSummary() {
+            const data = validateBookingInputs();
+            if (!data) return;
+
+            const summaryCopy = `Pré-Agendamento Psicoterapia - ${CONFIG_PSICOLOGA.nome} (${CONFIG_PSICOLOGA.crp}) | Paciente: ${data.patientName} | Data: ${data.dateStr} às ${data.timeStr} | Modalidade: ${data.modality}`;
+            
+            copyTextToClipboard(summaryCopy);
+
+            showBookingFeedback(`🤍 Resumo do agendamento copiado para a sua área de transferência!`);
+        }
+        /* --------------------------------------------------------------------------
+           5. COPIAR CARTÃO DE CONTATO (COMPATÍVEL COM IFRAME)
+           -------------------------------------------------------------------------- */
+        function copyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error('Erro ao copiar:', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function copyContactCard() {
+            const cardInfo = `${CONFIG_PSICOLOGA.nome} (${CONFIG_PSICOLOGA.crp}) - Psicologia Clínica | WhatsApp: +${CONFIG_PSICOLOGA.whatsappNumero} | Instagram: ${CONFIG_PSICOLOGA.instagramUser} | Endereço: ${CONFIG_PSICOLOGA.enderecoPresencial}`;
+            copyTextToClipboard(cardInfo);
+
+            const btnText = document.getElementById('copyCardBtnText');
+            const original = btnText.textContent;
+            btnText.textContent = "🐾 Cartão copiado com sucesso!";
+            setTimeout(() => {
+                btnText.textContent = original;
+            }, 3000);
+        }
+
+        /* --------------------------------------------------------------------------
+           6. SCROLL REVEAL E CANVAS DE PARTÍCULAS MONOCROMÁTICAS CALMAS
+           -------------------------------------------------------------------------- */
+        function initScrollReveal() {
+            const items = document.querySelectorAll('.reveal-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            items.forEach(item => observer.observe(item));
+        }
+
+        function initCalmParticles() {
+            const canvas = document.getElementById('calmParticlesCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            for (let i = 0; i < 28; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2.2 + 0.8,
+                    speedY: -(Math.random() * 0.25 + 0.08),
+                    speedX: (Math.random() - 0.5) * 0.2,
+                    isDark: i % 2 === 0
+                });
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+
+                    if (p.y < -10) p.y = canvas.height + 10;
+                    if (p.x < -10) p.x = canvas.width + 10;
+                    if (p.x > canvas.width + 10) p.x = -10;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.isDark ? 'rgba(113, 113, 122, 0.35)' : 'rgba(212, 212, 216, 0.35)';
+                    ctx.fill();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        }
+
+        /* Inicialização Geral ao carregar a página */
+        window.onload = function () {
+            applyPsychologistConfig();
+            generateUpcomingDays();
+            renderDaysGrid();
+            selectTimeSlot("10:00"); // Pré-seleciona um horário para facilitar o uso imediato
+            initScrollReveal();
+            initCalmParticles();
+        };
+    </script>
+</body>
+</html>
