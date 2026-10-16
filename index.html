@@ -269,9 +269,8 @@
             crp: "CRP 08/48173",
             abordagem: "Psicologia Clínica • Psicologia Baseada em Evidências (PBE)",
             fraseAcolhimento: "Assim como os gatos encontram paz no silêncio e harmonia entre a luz e a sombra, a psicoterapia é o seu espaço seguro para desacelerar, acolher sua história e se reconectar consigo.",
-            // Substitua a URL abaixo pela foto real da psicóloga (ex: "minha-foto.jpg" ou link direto)
             fotoUrl: "perfil.jpg",
-            whatsappNumero: "5541988467240", // Apenas números com DDI (55) e DDD
+            whatsappNumero: "5541988467240", 
             instagramUrl: "https://www.instagram.com/psipsicrs",
             instagramUser: "@psipsicrs",
             linkedinUrl: "https://linkedin.com/in/",
@@ -279,6 +278,7 @@
             discordUrl: "https://discord.gg/PtjhGh35",
             discordUser: "Clinica PsiPsi",
             enderecoPresencial: "R. Chiden Kalil, 428 - Jardim Santa Helena, Bocaiúva do Sul - PR, 83453-054",
+            googleMapsUrl: "https://maps.app.goo.gl/irRPudSJrgY8LGeL8",
             valorInfo: "Atendimento particular com hora marcada, verificar horários disponíveis.",
         };
     </script>
@@ -1017,6 +1017,7 @@
             </div>
 
             <!-- Barra de Localização Presencial & Copiar Contato -->
+            <!-- Barra de Localização Presencial & Copiar Contato -->
             <div class="theme-card-secondary p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 rounded-2xl border border-current/20 flex items-center justify-center flex-shrink-0">
@@ -1037,6 +1038,26 @@
                     </svg>
                     <span id="copyCardBtnText">Copiar Cartão de Contato</span>
                 </button>
+            </div>
+
+            <!-- NOVO: Card de Avaliação no Google Maps (Logo abaixo) -->
+            <div class="theme-card-secondary p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 mt-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl border border-current/20 flex items-center justify-center flex-shrink-0">
+                        <!-- Ícone de Estrela/Avaliação -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider opacity-70 block">Transparência & Feedback Clínico</span>
+                        <p class="font-serif text-xl font-medium"> Sua avaliação é muito importante para nós!🐈‍⬛ </p>
+                    </div>
+                </div>
+
+                <a id="googleMapsReviewBtn" href="https://maps.app.goo.gl/irRPudSJrgY8LGeL8" target="_blank" rel="noopener noreferrer" class="theme-btn-primary px-6 py-3.5 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 flex-shrink-0 shadow-sm hover:opacity-90">
+                    <span>⭐ Avaliar no Google Maps</span>
+                </a>
             </div>
 
         </div>
@@ -1097,6 +1118,7 @@
             document.getElementById('psiProfileImg').src = CONFIG_PSICOLOGA.fotoUrl;
             document.getElementById('agendaFooterInfo').textContent = CONFIG_PSICOLOGA.valorInfo;
             document.getElementById('footerAddressText').textContent = CONFIG_PSICOLOGA.enderecoPresencial;
+            document.getElementById('googleMapsReviewBtn').href = CONFIG_PSICOLOGA.googleMapsUrl;
 
             // Atualizar Links Sociais
             const defaultWppMsg = encodeURIComponent(`Olá, ${CONFIG_PSICOLOGA.nome}! Vim pelo seu site e gostaria de saber mais sobre as sessões de psicoterapia.`);
@@ -1134,8 +1156,23 @@
         function toggleMobileMenu() {
             const panel = document.getElementById('mobileMenuPanel');
             panel.classList.toggle('hidden');
+        
         }
 
+
+        // Função para tocar o som de ronronar do gatinho
+        function playPurrSound() {
+            try {
+                const purrAudio = new Audio('purr.mp3');
+                purrAudio.volume = 0.7; // Ajuste o volume (0.0 a 1.0) conforme preferir
+                purrAudio.currentTime = 0; 
+                purrAudio.play().catch(e => {
+                    console.log("Reprodução de áudio restrita pelo navegador até haver interação.", e);
+                });
+            } catch (e) {
+                console.log("Erro ao reproduzir o áudio do ronronado.", e);
+            }
+        }
         /* --------------------------------------------------------------------------
            3. INTERAÇÃO DE ACARICIAR OS GATINHOS & PAUSA DE RESPIRAÇÃO
            -------------------------------------------------------------------------- */
@@ -1152,6 +1189,9 @@
             purrCount++;
             document.getElementById('purrCounterBadge').textContent = `ronrom: ${purrCount}`;
             document.getElementById('purrStatusText').textContent = purrMessages[purrCount % purrMessages.length];
+
+            // Toca o som do ronronado do gatinho 🐾
+            playPurrSound();
 
             // Criar coração/patinha flutuante
             const container = document.getElementById('floatingPurrContainer');
@@ -1217,15 +1257,7 @@
         let availableDays = [];
         let selectedDayIndex = 0;
         let selectedTimeSlot = null;
-        // Horários ocupados simulados + agendados pelo usuário na sessão
-        /*let bookedSlotsMap = {
-            "0": ["09:00", "15:00", "19:00"],
-            "1": ["10:00", "14:00"],
-            "2": ["08:00", "16:00", "18:00"],
-            "3": ["11:00", "15:00"],
-            "4": ["09:00", "17:00", "20:00"],
-            "5": ["10:00", "11:00", "14:00"]
-        };*/
+    
 
         function generateUpcomingDays() {
             availableDays = [];
@@ -1315,88 +1347,6 @@
             updateAppointmentSummary();
             hideBookingFeedback();
         }
-
-
-        /*function renderDaysGrid() {
-            const container = document.getElementById('daysGridContainer');
-            container.innerHTML = '';
-
-            availableDays.forEach((dayObj, idx) => {
-                const isSelected = idx === selectedDayIndex;
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.onclick = () => selectDay(idx);
-                btn.className = `p-3 rounded-2xl border text-center flex flex-col items-center justify-center gap-0.5 focus:outline-none ${
-                    isSelected 
-                        ? 'theme-btn-primary shadow-md scale-[1.03]' 
-                        : 'border-current/20 hover:border-current/60 opacity-80 hover:opacity-100'
-                }`;
-                btn.innerHTML = `
-                    <span class="text-[11px] uppercase tracking-wider opacity-75">${dayObj.dayName}</span>
-                    <span class="font-serif text-2xl font-bold leading-none my-0.5">${dayObj.dayNumber}</span>
-                    <span class="text-[10px] uppercase opacity-70">${dayObj.monthName}</span>
-                `;
-                container.appendChild(btn);
-            });
-        }
-
-        function renderTimeSlots() {
-            const container = document.getElementById('timeSlotsContainer');
-            container.innerHTML = '';
-            const busyForDay = bookedSlotsMap[String(selectedDayIndex)] || [];
-
-            Object.keys(scheduleTemplate).forEach(periodName => {
-                const slots = scheduleTemplate[periodName];
-                const periodWrapper = document.createElement('div');
-                periodWrapper.className = 'space-y-2.5';
-
-                const periodHeader = document.createElement('div');
-                periodHeader.className = 'flex items-center gap-2 text-xs font-medium opacity-75';
-                periodHeader.innerHTML = `<span>• ${periodName}</span>`;
-                periodWrapper.appendChild(periodHeader);
-
-                const grid = document.createElement('div');
-                grid.className = 'grid grid-cols-2 sm:grid-cols-4 gap-2.5';
-
-                slots.forEach(timeStr => {
-                    const isBusy = busyForDay.includes(timeStr);
-                    const isSelected = selectedTimeSlot === timeStr;
-
-                    const slotBtn = document.createElement('button');
-                    slotBtn.type = 'button';
-                    slotBtn.disabled = isBusy;
-
-                    if (isBusy) {
-                        slotBtn.className = 'py-2.5 px-3 rounded-xl border border-current/15 text-xs font-mono opacity-35 line-through cursor-not-allowed';
-                        slotBtn.textContent = `${timeStr} • Ocupado`;
-                    } else {
-                        slotBtn.onclick = () => selectTimeSlot(timeStr);
-                        slotBtn.className = `py-2.5 px-3 rounded-xl border text-xs sm:text-sm font-mono font-medium focus:outline-none ${
-                            isSelected
-                                ? 'theme-btn-primary shadow-md scale-[1.02]'
-                                : 'border-current/25 hover:border-current'
-                        }`;
-                        slotBtn.innerHTML = isSelected ? `🐾 ${timeStr}` : timeStr;
-                    }
-                    grid.appendChild(slotBtn);
-                });
-
-                periodWrapper.appendChild(grid);
-                container.appendChild(periodWrapper);
-            });
-        }*/
-
-        /*function selectDay(idx) {
-            selectedDayIndex = idx;
-            // Se o horário selecionado estiver ocupado no novo dia, limpa
-            const busyForDay = bookedSlotsMap[String(selectedDayIndex)] || [];
-            if (selectedTimeSlot && busyForDay.includes(selectedTimeSlot)) {
-                selectedTimeSlot = null;
-            }
-            renderDaysGrid();
-            renderTimeSlots();
-            updateAppointmentSummary();
-        }*/
 
         function selectTimeSlot(timeStr) {
             selectedTimeSlot = timeStr;
