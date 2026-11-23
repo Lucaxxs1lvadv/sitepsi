@@ -1,0 +1,227 @@
+/* ==========================================================================
+   FONTE DO CSS — edite este arquivo e rode `npm run build` para gerar
+   assets/css/style.css (o arquivo que o site realmente carrega).
+   ========================================================================== */
+@import "tailwindcss";
+
+@source "../index.html";
+@source "../assets/js/main.js";
+
+@theme {
+    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Fontes hospedadas no próprio site (sem Google Fonts → sem rastreio de
+   visitantes por terceiros e compatível com a CSP).
+   -------------------------------------------------------------------------- */
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/cormorant-garamond-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 600; font-display: swap; src: url("../fonts/cormorant-garamond-latin-600-italic.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 300; font-display: swap; src: url("../fonts/plus-jakarta-sans-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+
+/* ==========================================================================
+   VARIÁVEIS DE TEMA (claro / escuro com seções alternadas)
+   ========================================================================== */
+:root {
+    --sec-primary-bg: #FAF9F5;
+    --sec-primary-surface: #FFFFFF;
+    --sec-primary-text: #111113;
+    --sec-primary-muted: #52525B;
+    --sec-primary-border: #E4E4E7;
+    --sec-primary-accent: #111113;
+    --sec-primary-accent-fg: #FAF9F5;
+
+    --sec-secondary-bg: #0C0C0E;
+    --sec-secondary-surface: #16161A;
+    --sec-secondary-text: #FAF9F5;
+    --sec-secondary-muted: #A1A1AA;
+    --sec-secondary-border: #27272A;
+    --sec-secondary-accent: #FAF9F5;
+    --sec-secondary-accent-fg: #0C0C0E;
+
+    --nav-bg: rgba(250, 249, 245, 0.85);
+    --nav-text: #111113;
+    --nav-border: rgba(17, 17, 19, 0.08);
+
+    --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+    color-scheme: light;
+}
+
+html.black-cat-mode {
+    --sec-primary-bg: #0C0C0E;
+    --sec-primary-surface: #16161A;
+    --sec-primary-text: #FAF9F5;
+    --sec-primary-muted: #A1A1AA;
+    --sec-primary-border: #27272A;
+    --sec-primary-accent: #FAF9F5;
+    --sec-primary-accent-fg: #0C0C0E;
+
+    --sec-secondary-bg: #FAF9F5;
+    --sec-secondary-surface: #FFFFFF;
+    --sec-secondary-text: #111113;
+    --sec-secondary-muted: #52525B;
+    --sec-secondary-border: #E4E4E7;
+    --sec-secondary-accent: #111113;
+    --sec-secondary-accent-fg: #FAF9F5;
+
+    --nav-bg: rgba(12, 12, 14, 0.85);
+    --nav-text: #FAF9F5;
+    --nav-border: rgba(250, 249, 245, 0.1);
+    color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body { background-color: var(--sec-primary-bg); }
+
+/* Transição serena das cores ao trocar o tema (só cores: leve para o navegador) */
+body, section, header, footer, div, button, a, span, p, h1, h2, h3, h4, input, select, textarea, svg, path, circle {
+    transition: background-color 0.85s var(--ease-calm),
+                color 0.85s var(--ease-calm),
+                border-color 0.85s var(--ease-calm),
+                fill 0.85s var(--ease-calm),
+                stroke 0.85s var(--ease-calm),
+                transform 0.45s var(--ease-calm),
+                box-shadow 0.45s var(--ease-calm),
+                opacity 0.45s var(--ease-calm);
+}
+
+/* ---------- Seções e componentes temáticos ---------- */
+.theme-section-primary { background-color: var(--sec-primary-bg); color: var(--sec-primary-text); }
+.theme-card-primary { background-color: var(--sec-primary-surface); color: var(--sec-primary-text); border: 1px solid var(--sec-primary-border); }
+.theme-muted-primary { color: var(--sec-primary-muted); }
+.theme-btn-primary { background-color: var(--sec-primary-accent); color: var(--sec-primary-accent-fg); }
+.theme-btn-outline-primary { border: 1px solid var(--sec-primary-text); color: var(--sec-primary-text); }
+.theme-btn-outline-primary:hover { background-color: var(--sec-primary-text); color: var(--sec-primary-bg); }
+
+.theme-section-secondary { background-color: var(--sec-secondary-bg); color: var(--sec-secondary-text); }
+.theme-card-secondary { background-color: var(--sec-secondary-surface); color: var(--sec-secondary-text); border: 1px solid var(--sec-secondary-border); }
+.theme-muted-secondary { color: var(--sec-secondary-muted); }
+.theme-btn-secondary { background-color: var(--sec-secondary-accent); color: var(--sec-secondary-accent-fg); }
+.theme-btn-outline-secondary { border: 1px solid var(--sec-secondary-text); color: var(--sec-secondary-text); }
+.theme-btn-outline-secondary:hover { background-color: var(--sec-secondary-text); color: var(--sec-secondary-bg); }
+
+.site-header { background-color: var(--nav-bg); color: var(--nav-text); border-bottom: 1px solid var(--nav-border); }
+.mobile-menu { background-color: var(--sec-primary-bg); color: var(--sec-primary-text); border-bottom: 1px solid var(--sec-primary-border); }
+.theme-input { background-color: var(--sec-primary-bg); color: var(--sec-primary-text); border: 1px solid var(--sec-primary-border); }
+.theme-input::placeholder { color: var(--sec-primary-muted); opacity: .7; }
+
+.fill-primary-bg { fill: var(--sec-primary-bg); }
+.fill-primary-surface { fill: var(--sec-primary-surface); }
+.fill-secondary-bg { fill: var(--sec-secondary-bg); }
+.fill-secondary-surface { fill: var(--sec-secondary-surface); }
+.stroke-primary-bg { stroke: var(--sec-primary-bg); }
+.stroke-secondary-bg { stroke: var(--sec-secondary-bg); }
+.bg-strip-primary { background-color: var(--sec-primary-bg); }
+.bg-strip-secondary { background-color: var(--sec-secondary-bg); }
+
+/* Foco visível e acessível em todo o site */
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 0.75rem; }
+
+.skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 100;
+    padding: .75rem 1.25rem; border-radius: .75rem;
+    background: var(--sec-primary-accent); color: var(--sec-primary-accent-fg);
+}
+.skip-link:focus { top: 1rem; }
+
+/* ==========================================================================
+   ANIMAÇÕES CALMAS
+   ========================================================================== */
+@keyframes breatheFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.015); } }
+@keyframes floatHeart {
+    0% { opacity: 0; transform: translateY(10px) scale(.6); }
+    30% { opacity: .9; transform: translateY(-10px) scale(1); }
+    100% { opacity: 0; transform: translateY(-45px) scale(.8); }
+}
+@keyframes floatPawsUp {
+    0% { opacity: 0; transform: translateY(20px) scale(.6); }
+    30% { opacity: .5; transform: translateY(-5px) scale(1); }
+    100% { opacity: 0; transform: translateY(-45px) scale(.9); }
+}
+@keyframes eqBar { 0%, 100% { transform: scaleY(.35); } 50% { transform: scaleY(1); } }
+
+.animate-breathe { animation: breatheFloat 6s ease-in-out infinite; }
+.animate-breathe-delayed { animation: breatheFloat 7s ease-in-out 1.5s infinite; }
+.float-heart { position: absolute; bottom: 15%; font-size: 1.35rem; animation: floatHeart 1.8s ease-out forwards; pointer-events: none; }
+
+.footer-paw { position: absolute; pointer-events: none; font-size: 1.1rem; opacity: 0; animation: floatPawsUp 4s ease-in-out infinite; }
+.footer-paw:nth-of-type(1) { left: 10%; bottom: 10px; animation-delay: 0s; }
+.footer-paw:nth-of-type(2) { left: 35%; bottom: 5px; animation-delay: 1.5s; }
+.footer-paw:nth-of-type(3) { left: 65%; bottom: 12px; animation-delay: .8s; }
+.footer-paw:nth-of-type(4) { left: 88%; bottom: 8px; animation-delay: 2.2s; }
+
+/* Orelhinhas sutis nos cards (detalhe implícito) */
+.cat-ear-card { position: relative; }
+.cat-ear-card::before, .cat-ear-card::after {
+    content: ""; position: absolute; top: 0; width: 18px; height: 16px;
+    background-color: currentColor; clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    opacity: 0; pointer-events: none;
+    transition: opacity .4s var(--ease-calm), transform .4s var(--ease-calm);
+}
+.cat-ear-card::before { left: 24px; transform: translateY(4px) rotate(-8deg) scale(.7); }
+.cat-ear-card::after { right: 24px; transform: translateY(4px) rotate(8deg) scale(.7); }
+.cat-ear-card:hover::before, .cat-ear-card:focus-visible::before { opacity: .85; transform: translateY(-13px) rotate(-6deg) scale(1); }
+.cat-ear-card:hover::after, .cat-ear-card:focus-visible::after { opacity: .85; transform: translateY(-13px) rotate(6deg) scale(1); }
+
+/* Scroll reveal (só esconde se o JS estiver ativo) */
+.js .reveal-item { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease-calm), transform .9s var(--ease-calm); }
+.js .reveal-item.revealed { opacity: 1; transform: none; }
+
+/* ---------- Galeria do consultório (moldura em arco) ---------- */
+.office-frame {
+    background:
+        radial-gradient(60% 45% at 70% 35%, rgba(255, 190, 120, .35), transparent 70%),
+        linear-gradient(180deg, #1c1712 0%, #0c0a08 100%);
+}
+.office-slide {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transform: scale(1.04);
+    filter: grayscale(.85) brightness(.82) contrast(1.05);
+    transition: opacity 1.6s var(--ease-calm), transform 9s linear, filter 1.2s var(--ease-calm);
+}
+.office-slide.is-active { opacity: 1; transform: scale(1); }
+.group:hover .office-slide, .group:focus-within .office-slide { filter: grayscale(0) brightness(.9) sepia(.12); }
+.office-slide.is-broken { display: none; }
+
+.slide-dot { width: .5rem; height: .5rem; border-radius: 9999px; background: rgba(255,255,255,.45); }
+.slide-dot[aria-current="true"] { background: #fff; width: 1.25rem; }
+
+/* ---------- Respiração guiada ---------- */
+.breath-ring { transition: transform 4s ease-in-out, opacity 4s ease-in-out; }
+.breath-ring.inhale { transform: scale(1.12); }
+.breath-ring.hold { transform: scale(1.12); }
+.breath-ring.exhale { transform: scale(.94); transition-duration: 6s; }
+
+/* ---------- Player de ambiente sonoro ---------- */
+.sound-panel { background-color: var(--sec-primary-surface); color: var(--sec-primary-text); border: 1px solid var(--sec-primary-border); }
+.sound-fab { background-color: var(--sec-primary-accent); color: var(--sec-primary-accent-fg); }
+.eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; }
+.eq span { width: 3px; height: 100%; background: currentColor; border-radius: 2px; transform: scaleY(.35); transform-origin: bottom; }
+.is-playing .eq span { animation: eqBar 1.2s ease-in-out infinite; }
+.is-playing .eq span:nth-child(2) { animation-delay: .2s; }
+.is-playing .eq span:nth-child(3) { animation-delay: .4s; }
+.chip[aria-pressed="true"] { background-color: var(--sec-primary-accent); color: var(--sec-primary-accent-fg); border-color: var(--sec-primary-accent); }
+.ad-chapter[aria-current="true"] { background-color: color-mix(in oklab, currentColor 12%, transparent); font-weight: 600; }
+
+input[type="range"].calm-range { accent-color: var(--sec-primary-accent); width: 100%; }
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #111113; }
+::-webkit-scrollbar-thumb { background: #52525B; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #71717A; }
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    .js .reveal-item { opacity: 1; transform: none; }
+    .footer-paw { display: none; }
+}
