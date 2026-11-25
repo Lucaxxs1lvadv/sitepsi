@@ -22,9 +22,9 @@
         diasDeAtendimento: [1, 2, 3, 4, 5, 6],
         quantidadeDeDias: 6,
         horarios: {
-            'Manhã': ['08:00', '09:00', '10:00', '11:00'],
-            'Tarde': ['14:00', '15:00', '16:00', '17:00'],
-            'Noite': ['18:00', '19:00', '20:00']
+            'Manhã': ['09:30', '10:30', '11:30', '12:30'],
+            'Tarde': ['14:30', '15:30', '16:30', '17:30'],
+            'Noite': ['18:30', '19:30', '20:30']
         },
 
         limites: { nome: 60, observacao: 280 },
@@ -93,8 +93,8 @@
         function sync() {
             var dark = root.classList.contains('black-cat-mode');
             btn.setAttribute('aria-pressed', String(dark));
-            btn.setAttribute('aria-label', dark ? 'Tema escuro ativo. Mudar para o tema claro' : 'Tema claro ativo. Mudar para o tema escuro');
-            label.textContent = dark ? 'Tema escuro' : 'Tema claro';
+            btn.setAttribute('aria-label', dark ? 'Tema Sombra ativo. Mudar para o Tema Luz' : 'Tema Luz ativo. Mudar para o Tema Sombra');
+            label.textContent = dark ? 'Tema Sombra' : 'Tema Luz';
         }
         btn.addEventListener('click', function () {
             var dark = root.classList.toggle('black-cat-mode');
@@ -180,22 +180,69 @@
     }
 
     /* ----------------------------------------------------------------------
-       4. CARTÃO "LUZ & SOMBRA" (um detalhe para quem clica)
+       4. CARTÃO "LUZ & SOMBRA" — um carinho que ronrona
        ---------------------------------------------------------------------- */
     function initHarmonyCard() {
         var card = $('#harmonyCard');
         var container = $('#floatingPurrContainer');
-        if (!card || !container) return;
+        var bubble = $('#purrBubble');
+        var counter = $('#purrCount');
+        if (!card) return;
+
         var symbols = ['🤍', '🖤', '🐾', '✨'];
+        var messages = [
+            'Prrr… obrigado pelo carinho 🐾',
+            'Respire fundo… tudo no seu tempo 🤍',
+            'Luz e sombra em harmonia 🖤🤍',
+            'Um ronrom suave para acalmar o dia ✨',
+            'Até os gatinhos sabem a hora de descansar',
+            'Você também merece colo hoje 🤍'
+        ];
         var count = 0;
+        var purrTimer = null, bubbleTimer = null;
+
         card.addEventListener('click', function () {
-            var el = document.createElement('span');
-            el.className = 'float-heart';
-            el.textContent = symbols[count++ % symbols.length];
-            el.style.left = (20 + Math.random() * 50) + '%';
-            container.appendChild(el);
-            setTimeout(function () { el.remove(); }, 1900);
+            count++;
+            counter.textContent = '×' + count;
+            counter.setAttribute('aria-label', count + (count === 1 ? ' ronrom' : ' ronrons'));
+            counter.classList.remove('hidden');
+
+            // corações e patinhas subindo
+            if (container) {
+                for (var i = 0; i < 2; i++) {
+                    (function (delay, n) {
+                        setTimeout(function () {
+                            var el = document.createElement('span');
+                            el.className = 'float-heart';
+                            el.textContent = symbols[(count + n) % symbols.length];
+                            el.style.left = (4 + Math.random() * 32) + '%';
+                            container.appendChild(el);
+                            setTimeout(function () { el.remove(); }, 1900);
+                        }, delay);
+                    })(i * 260, i);
+                }
+            }
+
+            // os gatinhos vibram, abanam o rabo e o coração pulsa
+            card.classList.remove('is-purring');
+            void card.offsetWidth;
+            card.classList.add('is-purring');
+            clearTimeout(purrTimer);
+            purrTimer = setTimeout(function () { card.classList.remove('is-purring'); }, 2600);
+
+            // mensagem gentil
+            if (bubble) {
+                bubble.textContent = messages[(count - 1) % messages.length];
+                bubble.classList.add('is-visible');
+                clearTimeout(bubbleTimer);
+                bubbleTimer = setTimeout(function () { bubble.classList.remove('is-visible'); }, 3200);
+            }
+
+            // o som do ronrom (e uma vibração leve no celular, quando houver)
             Sound.purr();
+            if (!prefersReducedMotion && navigator.vibrate) {
+                try { navigator.vibrate([18, 22, 18, 22, 18, 22, 18, 160, 18, 22, 18, 22, 18]); } catch (e) { /* ignore */ }
+            }
         });
     }
 
@@ -359,7 +406,7 @@
         var nameInput = $('#patientNameInput');
         var name = cleanText(nameInput.value, CONFIG.limites.nome);
         if (name.length < 2) {
-            showFeedback('Escreva seu nome (ou como prefere ser chamado) para a Camili identificar seu pedido.');
+            showFeedback('Escreva seu nome (ou como prefere ser chamado) para a Camili identificar seu agendamento.');
             nameInput.setAttribute('aria-invalid', 'true');
             nameInput.focus();
             return null;
@@ -378,7 +425,7 @@
             e.preventDefault();
             var b = collectBooking();
             if (!b) return;
-            var msg = 'Olá, ' + CONFIG.primeiroNome + '! Gostaria de pedir um horário pelo site:\n\n' +
+            var msg = 'Olá, ' + CONFIG.primeiroNome + '! Gostaria de agendar uma sessão pelo site:\n\n' +
                 '• *Nome:* ' + b.name + '\n' +
                 '• *Data:* ' + b.date + '\n' +
                 '• *Horário:* ' + b.time + '\n' +
@@ -392,7 +439,7 @@
         $('#copySummaryBtn').addEventListener('click', function () {
             var b = collectBooking();
             if (!b) return;
-            var text = 'Pedido de sessão — ' + CONFIG.nome + ' (' + CONFIG.crp + ') | Nome: ' + b.name +
+            var text = 'Agendamento de sessão — ' + CONFIG.nome + ' (' + CONFIG.crp + ') | Nome: ' + b.name +
                 ' | Data: ' + b.date + ' às ' + b.time + ' | Modalidade: ' + b.modality;
             copyText(text)
                 .then(function () { showFeedback('Resumo copiado. É só colar na conversa com a Camili. 🤍'); })
@@ -650,26 +697,39 @@
                 if (active) fadeTo(targetGain(), 0.3);
             },
             duck: function (on) { ducked = on; if (active) fadeTo(targetGain(), 0.8); },
-            /* ronrom curtinho: só toca se o som já foi ativado pelo visitante */
+            /* ronrom: duas "respiradas" de um ronronar grave e macio */
             purr: function () {
-                if (!ctx) return;
-                if (ctx.state === 'suspended') ctx.resume();
-                var t = ctx.currentTime;
-                var src = ctx.createBufferSource(); src.buffer = noiseBuffer('brown', 2.6);
-                var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 320;
-                var am = ctx.createGain(); am.gain.value = 0.5;
-                var lfo = ctx.createOscillator(); lfo.frequency.value = 24;
-                var ld = ctx.createGain(); ld.gain.value = 0.5;
+                if (!supported()) return;
+                ensure();
+                var t = ctx.currentTime + 0.02;
+                var dur = 2.8;
+                var src = ctx.createBufferSource(); src.buffer = noiseBuffer('brown', dur + 0.2);
+                var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 260; lp.Q.value = 0.7;
+                var body = ctx.createBiquadFilter(); body.type = 'peaking'; body.frequency.value = 120; body.gain.value = 6;
+
+                // pulsação ~26 Hz (o "rrrr"), mais lenta na expiração
+                var am = ctx.createGain(); am.gain.value = 0.45;
+                var lfo = ctx.createOscillator(); lfo.type = 'triangle';
+                lfo.frequency.setValueAtTime(27, t);
+                lfo.frequency.linearRampToValueAtTime(24, t + 1.3);
+                lfo.frequency.setValueAtTime(26, t + 1.45);
+                lfo.frequency.linearRampToValueAtTime(23, t + dur);
+                var ld = ctx.createGain(); ld.gain.value = 0.55;
                 lfo.connect(ld).connect(am.gain);
+
                 var env = ctx.createGain(); env.gain.value = 0;
-                var peak = Math.max(0.15, volume) * 0.9;
+                var peak = Math.max(0.3, volume) * 1.1;
                 env.gain.setValueAtTime(0, t);
-                env.gain.linearRampToValueAtTime(peak, t + 0.35);
-                env.gain.linearRampToValueAtTime(peak * 0.45, t + 1.1);
-                env.gain.linearRampToValueAtTime(peak, t + 1.5);
-                env.gain.linearRampToValueAtTime(0, t + 2.5);
-                src.connect(lp).connect(am).connect(env).connect(ctx.destination);
-                src.start(t); lfo.start(t); src.stop(t + 2.6); lfo.stop(t + 2.6);
+                env.gain.linearRampToValueAtTime(peak * 0.8, t + 0.35);   // inspira
+                env.gain.linearRampToValueAtTime(peak * 0.6, t + 1.2);
+                env.gain.linearRampToValueAtTime(peak * 0.15, t + 1.4);
+                env.gain.linearRampToValueAtTime(peak, t + 1.7);         // expira
+                env.gain.linearRampToValueAtTime(peak * 0.7, t + 2.4);
+                env.gain.linearRampToValueAtTime(0, t + dur);
+
+                src.connect(lp).connect(body).connect(am).connect(env).connect(ctx.destination);
+                src.start(t); lfo.start(t);
+                src.stop(t + dur + 0.1); lfo.stop(t + dur + 0.1);
             }
         };
     })();

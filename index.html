@@ -94,8 +94,8 @@
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12 3c-1.2 0-2.4.4-3.3 1.1L5 2v5.5C4.3 8.8 4 10.3 4 12c0 4.4 3.6 8 8 8s8-3.6 8-8c0-1.7-.3-3.2-1-4.5V2l-3.7 2.1C14.4 3.4 13.2 3 12 3zm-3 8.5c.8 0 1.5.7 1.5 1.5S9.8 14.5 9 14.5 7.5 13.8 7.5 13s.7-1.5 1.5-1.5zm6 0c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5z"/>
                     </svg>
-                    <span id="themeToggleLabel" class="hidden sm:inline">Tema claro</span>
-                    <span class="sr-only sm:hidden">Alternar tema claro ou escuro</span>
+                    <span id="themeToggleLabel" class="hidden sm:inline">Tema Luz</span>
+                    <span class="sr-only sm:hidden">Alternar entre Tema Luz e Tema Sombra</span>
                     <span class="w-2 h-2 rounded-full bg-current opacity-60" aria-hidden="true"></span>
                 </button>
 
@@ -112,7 +112,7 @@
             <a href="#sobre" class="block py-2.5 text-base font-medium border-b border-current/10">Sobre</a>
             <a href="#especialidades" class="block py-2.5 text-base font-medium border-b border-current/10">Especialidades</a>
             <a href="#agenda" class="block py-2.5 text-base font-medium border-b border-current/10">Agenda de consultas</a>
-            <a href="#canais" class="block py-2.5 text-base font-medium">Contato & redes</a>
+            <a href="#canais" class="block py-2.5 text-base font-medium">Contato &amp; Redes</a>
         </nav>
     </header>
 
@@ -121,22 +121,45 @@
     <!-- ======================================================================
          SEÇÃO 1 — APRESENTAÇÃO
          ====================================================================== -->
-    <section id="inicio" class="theme-section-primary relative pt-28 pb-24 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden" aria-labelledby="heroTitle">
+    <section id="inicio" class="theme-section-primary relative pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden" aria-labelledby="heroTitle">
+
+        <!-- Fotos do consultório: ficam atrás do conteúdo e se dissolvem no fundo (claro ou escuro, conforme o tema) -->
+        <figure class="hero-media" aria-roledescription="carrossel" aria-label="Fotos ilustrativas de ambientes de consultório">
+            <img class="office-slide is-active" width="1080" height="1350" fetchpriority="high" decoding="async"
+                 src="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1080&h=1350&q=70"
+                 srcset="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1080&h=1350&q=70 1080w, https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1440&h=1800&q=70 1440w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Poltrona e mesinha em uma sala iluminada apenas pela luz alaranjada e suave de um abajur de chão.">
+            <img class="office-slide" width="1080" height="1350" loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1080&h=1350&q=70"
+                 srcset="https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1080&h=1350&q=70 1080w, https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1440&h=1800&q=70 1440w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Sala aconchegante com paredes revestidas de madeira, sofá cinza e luz baixa de abajur.">
+            <img class="office-slide" width="1080" height="1350" loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1080&h=1350&q=70"
+                 srcset="https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1080&h=1350&q=70 1080w, https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1440&h=1800&q=70 1440w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Canto tranquilo com poltrona e luminária acesa em luz quente.">
+            <span class="hero-media-tint" aria-hidden="true"></span>
+        </figure>
+
         <div class="max-w-6xl mx-auto relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
 
                 <!-- Texto -->
                 <div class="lg:col-span-7 space-y-6 text-left">
                     <p class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-2xl sm:rounded-full border border-current/20 text-xs sm:text-sm tracking-wide">
-                        <svg class="w-4 h-4 opacity-80" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <circle cx="7" cy="7" r="2.2"/><circle cx="12" cy="5.5" r="2.2"/><circle cx="17" cy="7" r="2.2"/>
-                            <path d="M12 10c-3.5 0-6 2.5-6 5.5 0 2 1.8 3.5 4 3.5.8 0 1.4-.2 2-.2s1.2.2 2 .2c2.2 0 4-1.5 4-3.5 0-3-2.5-5.5-6-5.5z"/>
+                        <!-- Letra grega psi (ψ), símbolo da Psicologia -->
+                        <svg class="w-4 h-4 opacity-85 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 3.5v17"/>
+                            <path d="M5 6.5c0 0 .2 1.2.2 3.3 0 3.6 2.6 5.7 6.8 5.7s6.8-2.1 6.8-5.7c0-2.1.2-3.3.2-3.3"/>
+                            <path d="M9.5 20.5h5"/>
                         </svg>
-                        <span> Psicologia Clínica • Baseada em Evidências • Online &amp; Presencial</span>
+                        <span>Psicologia Clínica • Baseada em Evidências • Online &amp; Presencial</span>
                     </p>
 
                     <h1 id="heroTitle" class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight">
-                        Encontre equilíbrio entre o que você <span class="italic font-normal underline decoration-1 underline-offset-8">sente</span> e quem você <span class="italic font-normal">é</span>.
+                        Encontre equilíbrio entre o que você <span class="italic font-normal">sente</span> e quem você <span class="italic font-normal">é</span>.
                     </h1>
 
                     <p class="theme-muted-primary text-base sm:text-lg leading-relaxed max-w-2xl">
@@ -160,7 +183,7 @@
                             </svg>
                             <span>Agendar sessão</span>
                         </a>
-                        <a href="https://wa.me/5541988467240?text=Ol%C3%A1%2C%20Camili!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20de%20psicoterapia." target="_blank" rel="noopener noreferrer" class="theme-btn-outline-primary px-7 py-4 rounded-2xl font-medium text-sm sm:text-base flex items-center justify-center gap-2.5">
+                        <a href="https://wa.me/5541988467240?text=Ol%C3%A1%2C%20Camili!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es%20de%20psicoterapia." target="_blank" rel="noopener noreferrer" class="theme-btn-outline-primary hero-glass px-7 py-4 rounded-2xl font-medium text-sm sm:text-base flex items-center justify-center gap-2.5">
                             <span>Conversar pelo WhatsApp</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -171,54 +194,36 @@
 
                     <!-- Imersão sonora e acessibilidade -->
                     <div class="pt-3 flex flex-wrap items-center gap-3 text-xs sm:text-sm theme-muted-primary">
-                        <button type="button" data-action="open-sound" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-current/20 hover:border-current/60 active:scale-95">
+                        <button type="button" data-action="open-sound" class="hero-glass inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-current/20 hover:border-current/60 active:scale-95">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 14v-2a9 9 0 0118 0v2M3 14a2 2 0 012-2h1v7H5a2 2 0 01-2-2v-3zm18 0a2 2 0 00-2-2h-1v7h1a2 2 0 002-2v-3z"/></svg>
                             <span>Ativar ambiente sonoro</span>
                         </button>
-                        <button type="button" data-action="open-ad" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-current/20 hover:border-current/60 active:scale-95">
+                        <button type="button" data-action="open-ad" class="hero-glass inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-current/20 hover:border-current/60 active:scale-95">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M5 9h3l4-4v14l-4-4H5a1 1 0 01-1-1v-4a1 1 0 011-1z"/></svg>
                             <span>Ouvir audiodescrição</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Fotos do consultório em moldura de arco -->
-                <div class="lg:col-span-5 flex flex-col items-center relative">
-                    <div id="floatingPurrContainer" class="absolute inset-0 pointer-events-none z-30" aria-hidden="true"></div>
+                <!-- Área das fotos (as fotos ficam atrás; aqui só os elementos sobre elas) -->
+                <div class="hero-stage lg:col-span-5 relative order-first lg:order-none h-72 sm:h-96 lg:h-[34rem] pointer-events-none">
+                    <div id="floatingPurrContainer" class="absolute inset-0 z-30" aria-hidden="true"></div>
 
-                    <figure class="relative w-72 sm:w-80 md:w-88 group" aria-roledescription="carrossel" aria-label="Fotos ilustrativas de ambientes de consultório">
-                        <div class="absolute -inset-3 rounded-t-full rounded-b-3xl border border-current/20 rotate-2 group-hover:rotate-0 transition-transform duration-700" aria-hidden="true"></div>
-                        <div class="absolute -inset-1.5 rounded-t-full rounded-b-3xl border border-current/40 -rotate-1 group-hover:rotate-0 transition-transform duration-700" aria-hidden="true"></div>
+                    <!-- Legenda das fotos + indicadores -->
+                    <div class="hero-glass absolute top-0 right-0 lg:top-6 pointer-events-auto flex items-center gap-2.5 pl-3 pr-2.5 py-1.5 rounded-full border border-current/15">
+                        <span class="text-[10px] uppercase tracking-widest opacity-75">Imagens ilustrativas</span>
+                        <span id="slideDots" class="flex items-center gap-1.5"></span>
+                    </div>
 
-                        <div class="office-frame relative rounded-t-full rounded-b-3xl overflow-hidden aspect-[4/5] shadow-2xl border-2 border-current">
-                            <img class="office-slide is-active" width="720" height="900" fetchpriority="high" decoding="async"
-                                 src="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=720&h=900&q=70"
-                                 srcset="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=480&h=600&q=70 480w, https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1080&h=1350&q=70 1080w"
-                                 sizes="(min-width: 768px) 352px, 320px"
-                                 alt="Poltrona e mesinha em uma sala iluminada apenas pela luz alaranjada e suave de um abajur de chão.">
-                            <img class="office-slide" width="720" height="900" loading="lazy" decoding="async"
-                                 src="https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=720&h=900&q=70"
-                                 srcset="https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=480&h=600&q=70 480w, https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1080&h=1350&q=70 1080w"
-                                 sizes="(min-width: 768px) 352px, 320px"
-                                 alt="Sala aconchegante com paredes revestidas de madeira, sofá cinza e luz baixa de abajur.">
-                            <img class="office-slide" width="720" height="900" loading="lazy" decoding="async"
-                                 src="https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=720&h=900&q=70"
-                                 srcset="https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=480&h=600&q=70 480w, https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1080&h=1350&q=70 1080w"
-                                 sizes="(min-width: 768px) 352px, 320px"
-                                 alt="Canto tranquilo com poltrona e luminária acesa em luz quente.">
+                    <p class="hero-quote hidden sm:block absolute right-0 bottom-2 lg:bottom-40 max-w-[15rem] text-right font-serif text-xl italic leading-snug">
+                        “Escutar com a alma é acolher sem pressa.”
+                    </p>
 
-                            <figcaption class="absolute inset-x-0 bottom-0 pt-16 bg-gradient-to-t from-black/80 via-black/35 to-transparent p-5 text-white">
-                                <p class="font-serif text-lg italic leading-tight">“Escutar com a alma é acolher sem pressa.”</p>
-                                <div class="mt-2 flex items-center justify-between gap-3">
-                                    <p class="text-[10px] uppercase tracking-widest opacity-75">Imagens ilustrativas</p>
-                                    <div id="slideDots" class="flex items-center gap-1.5"></div>
-                                </div>
-                            </figcaption>
-                        </div>
-
-                        <!-- Cartão "Luz & Sombra" (clicável) -->
-                        <button type="button" id="harmonyCard" title="Luz & Sombra" class="animate-breathe absolute -bottom-14 -left-6 sm:-left-10 theme-card-primary px-4 py-3.5 rounded-2xl shadow-xl flex items-center gap-3.5 z-20 hover:scale-105 text-left">
-                            <svg class="w-16 h-14 flex-shrink-0" viewBox="0 0 120 95" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Cartão "Luz & Sombra" — faça um carinho -->
+                    <div class="absolute left-0 -bottom-4 lg:bottom-4 z-20 pointer-events-auto">
+                        <p id="purrBubble" class="purr-bubble hero-glass absolute bottom-full left-0 mb-2 px-3 py-1.5 rounded-lg border border-current/15 text-[11px] whitespace-nowrap" aria-live="polite"></p>
+                        <button type="button" id="harmonyCard" title="Faça um carinho" aria-label="Luz e Sombra, equilíbrio emocional. Fazer um carinho" class="harmony-card animate-breathe theme-card-primary pl-2.5 pr-3.5 py-2 rounded-2xl shadow-lg flex items-center gap-2.5 hover:scale-[1.03] text-left">
+                            <svg class="harmony-cats w-11 h-9 flex-shrink-0" viewBox="0 0 120 95" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <g>
                                     <path d="M26 78C26 56 34 44 45 44C55 44 60 56 60 78H26Z" fill="#111113" stroke="#71717A" stroke-width="1.5"/>
                                     <circle cx="44" cy="34" r="14" fill="#111113" stroke="#71717A" stroke-width="1.5"/>
@@ -226,7 +231,7 @@
                                     <path d="M56 26L58 12L47 21Z" fill="#111113" stroke="#71717A" stroke-width="1.5" stroke-linejoin="round"/>
                                     <path d="M37 34C38.5 36 41 36 42.5 34" stroke="#FAF9F5" stroke-width="1.8" stroke-linecap="round"/>
                                     <path d="M46.5 34C48 36 50.5 36 52 34" stroke="#FAF9F5" stroke-width="1.8" stroke-linecap="round"/>
-                                    <path d="M28 75C14 72 12 52 24 46" stroke="#111113" stroke-width="4.5" stroke-linecap="round"/>
+                                    <path class="cat-tail cat-tail-left" d="M28 75C14 72 12 52 24 46" stroke="#111113" stroke-width="4.5" stroke-linecap="round"/>
                                 </g>
                                 <g>
                                     <path d="M56 78C56 58 63 46 74 46C85 46 92 58 92 78H56Z" fill="#FAF9F5" stroke="#111113" stroke-width="1.8"/>
@@ -235,17 +240,23 @@
                                     <path d="M86 28L87 14L77 23Z" fill="#FAF9F5" stroke="#111113" stroke-width="1.8" stroke-linejoin="round"/>
                                     <path d="M67 36C68.5 38 71 38 72.5 36" stroke="#111113" stroke-width="1.8" stroke-linecap="round"/>
                                     <path d="M76 36C77.5 38 80 38 81.5 36" stroke="#111113" stroke-width="1.8" stroke-linecap="round"/>
-                                    <path d="M90 75C104 72 106 52 94 46" stroke="#111113" stroke-width="5.5" stroke-linecap="round"/>
-                                    <path d="M90 75C104 72 106 52 94 46" stroke="#FAF9F5" stroke-width="3.2" stroke-linecap="round"/>
+                                    <g class="cat-tail cat-tail-right">
+                                        <path d="M90 75C104 72 106 52 94 46" stroke="#111113" stroke-width="5.5" stroke-linecap="round"/>
+                                        <path d="M90 75C104 72 106 52 94 46" stroke="#FAF9F5" stroke-width="3.2" stroke-linecap="round"/>
+                                    </g>
                                 </g>
-                                <path d="M59 16C59 13.5 56.5 12 54.5 13.5C52.5 12 50 13.5 50 16C50 19.5 54.5 22 54.5 22C54.5 22 59 19.5 59 16Z" fill="currentColor" opacity="0.75"/>
+                                <path class="cat-heart" d="M59 16C59 13.5 56.5 12 54.5 13.5C52.5 12 50 13.5 50 16C50 19.5 54.5 22 54.5 22C54.5 22 59 19.5 59 16Z" fill="currentColor" opacity="0.75"/>
                             </svg>
-                            <span class="pr-1">
-                                <span class="text-xs font-semibold uppercase tracking-wider block">Luz &amp; Sombra</span>
-                                <span class="text-xs theme-muted-primary block">Equilíbrio emocional</span>
+                            <span class="leading-tight">
+                                <span class="text-[10px] font-semibold uppercase tracking-wider block">Luz &amp; Sombra <span class="font-normal normal-case tracking-normal theme-muted-primary">· equilíbrio emocional</span></span>
+                                <span class="mt-1 flex items-center gap-1.5 text-[11px] theme-muted-primary">
+                                    <span aria-hidden="true" class="text-[10px]">🐾</span>
+                                    <span>Fazer carinho nos gatinhos</span>
+                                    <span id="purrCount" class="hidden px-1.5 rounded-full bg-current/10 text-[10px] font-semibold text-current"></span>
+                                </span>
                             </span>
                         </button>
-                    </figure>
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,7 +337,7 @@
                             Ao longo da minha trajetória clínica e experiência humana, percebi que muitas pessoas chegam à exaustão tentando dar conta de tudo sozinhas. Meu trabalho é oferecer um ambiente seguro, presença e escuta genuína, livre de julgamentos, integrando conhecimento científico e sensibilidade humana.
                         </p>
                         <p>
-                            Acredito que cada pessoa tem o seu próprio ritmo e tempo para construir confiança, se expressar e florescer Por isso, não há pressa: o processo psicoterapêutico é construído em conjunto, respeitando a singularidade de cada história e as possibilidades de cada momento. Caminharemos juntos, no seu ritmo, seja no consultório ou no conforto da sua casa.
+                            Acredito que cada pessoa tem o seu próprio ritmo e tempo para construir confiança, se expressar e florescer. Por isso, não há pressa: o processo psicoterapêutico é construído em conjunto, respeitando a singularidade de cada história e as possibilidades de cada momento. Caminharemos juntos, no seu ritmo, seja no consultório ou no conforto da sua casa.
                         </p>
                     </div>
 
@@ -352,12 +363,11 @@
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-current/15 pb-6">
                     <div>
                         <p class="text-xs uppercase tracking-widest opacity-70 mb-2">Como posso te ajudar</p>
-                        <h2 class="font-serif text-3xl sm:text-4xl font-semibold">Especialidades &amp; foco clínico</h2>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-semibold">Especialidades &amp; Foco clínico</h2>
                     </div>
                     <p class="theme-muted-secondary text-sm max-w-md">
-                       Acompanho jovens adultos, adultos e pessoas idosas em diferentes momentos da vida, considerando as particularidades de cada história e experiência.
-                    Conheça algumas das demandas presentes na minha prática clínica. Se a sua não estiver entre elas, podemos conversar.
- 
+                        Acompanho jovens adultos, adultos e pessoas idosas em diferentes momentos da vida, considerando as particularidades de cada história e experiência.
+                        Conheça algumas das demandas presentes na minha prática clínica. Se a sua não estiver entre elas, podemos conversar.
                     </p>
                 </div>
 
@@ -367,7 +377,7 @@
                             <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110" aria-hidden="true">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                             </div>
-                            <h3 class="font-serif text-2xl font-semibold">Ansiedade &amp; estresse</h3>
+                            <h3 class="font-serif text-2xl font-semibold">Ansiedade &amp; Estresse</h3>
                             <p class="theme-muted-secondary text-sm leading-relaxed">Estratégias para desacelerar pensamentos intrusivos, lidar com a sobrecarga mental e o perfeccionismo, e recuperar a qualidade do seu descanso.</p>
                         </div>
                         <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
@@ -383,7 +393,7 @@
                             <p class="theme-muted-secondary text-sm leading-relaxed">Compreensão da própria história, fortalecimento da autoestima, integração de luz e sombra e alinhamento com seus valores pessoais.</p>
                         </div>
                         <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
-                            <span>Identidade &amp; propósito</span><span aria-hidden="true">🐾</span>
+                            <span>Identidade &amp; Propósito</span><span aria-hidden="true">🐾</span>
                         </div>
                     </li>
                     <li class="cat-ear-card theme-card-secondary p-6 rounded-2xl flex flex-col justify-between group hover:-translate-y-1.5">
@@ -391,7 +401,7 @@
                             <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110" aria-hidden="true">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                             </div>
-                            <h3 class="font-serif text-2xl font-semibold">Relacionamentos &amp; limites</h3>
+                            <h3 class="font-serif text-2xl font-semibold">Relacionamentos &amp; Limites</h3>
                             <p class="theme-muted-secondary text-sm leading-relaxed">Aprender a dizer “não” com leveza e a estabelecer limites saudáveis nas relações afetivas, familiares e no trabalho.</p>
                         </div>
                         <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
@@ -403,11 +413,11 @@
                             <div class="w-12 h-12 rounded-xl border border-current/20 flex items-center justify-center group-hover:scale-110" aria-hidden="true">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                             </div>
-                            <h3 class="font-serif text-2xl font-semibold"> Psicoterapia online</h3>
-                            <p class="theme-muted-secondary text-sm leading-relaxed">Acompanhamento psicológico aonde quer que você esteja, realizado por videochamada, com horários flexíveis e preservando a sua privacidade por meio de plataformas digitais seguras..</p>
+                            <h3 class="font-serif text-2xl font-semibold">Psicoterapia online</h3>
+                            <p class="theme-muted-secondary text-sm leading-relaxed">Acompanhamento psicológico onde quer que você esteja, realizado por videochamada, com horários flexíveis e preservando a sua privacidade por meio de plataformas digitais seguras.</p>
                         </div>
                         <div class="pt-6 mt-4 border-t border-current/10 flex items-center justify-between text-xs opacity-60 group-hover:opacity-100">
-                            <span>Conforto &amp; privacidade</span><span aria-hidden="true">🐾</span>
+                            <span>Conforto &amp; Privacidade</span><span aria-hidden="true">🐾</span>
                         </div>
                     </li>
                 </ul>
@@ -440,7 +450,7 @@
                 <p class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-current/20 text-xs uppercase tracking-widest">Pré-agendamento</p>
                 <h2 id="agendaTitle" class="font-serif text-3xl sm:text-5xl font-semibold">Agende sua sessão</h2>
                 <p class="theme-muted-primary text-sm sm:text-base">
-                    Escolha um dia e um horário de preferência e envie o pedido pelo WhatsApp. A confirmação final é feita pela Camili, de acordo com a agenda real.
+                    Escolha um dia e um horário de preferência e envie seu agendamento pelo WhatsApp. A confirmação final é feita pela Camili, de acordo com a agenda real.
                 </p>
             </div>
 
@@ -477,7 +487,7 @@
                     <div class="flex items-center justify-between border-b border-current/10 pb-4">
                         <div>
                             <p class="text-xs uppercase tracking-wider opacity-70">3. Seus dados</p>
-                            <h3 class="font-serif text-2xl font-semibold">Resumo do pedido</h3>
+                            <h3 class="font-serif text-2xl font-semibold">Resumo do agendamento</h3>
                         </div>
                         <svg class="w-12 h-12" viewBox="0 0 60 60" fill="none" aria-hidden="true">
                             <path d="M14 48C14 34 21 26 30 26C39 26 46 34 46 48" fill="currentColor"/>
@@ -506,10 +516,10 @@
                         <div>
                             <label for="modalitySelect" class="block text-xs font-semibold uppercase tracking-wider mb-2">Modalidade</label>
                             <select id="modalitySelect" name="modalidade" class="theme-input w-full px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-current">
-                                <option>Online via Discord (sala privada)</option>
+                                <option>Presencial</option>
                                 <option>Online via Google Meet</option>
-                                <option>Online via chamada de vídeo do WhatsApp</option>
-                                <option>Presencial (consultório)</option>
+                                <option>Online via WhatsApp</option>
+                                <option>Online via Discord</option>
                             </select>
                         </div>
                         <div>
@@ -530,7 +540,7 @@
                     <div class="space-y-3 pt-2">
                         <button type="submit" class="theme-btn-primary w-full py-4 px-5 rounded-2xl font-medium text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-md hover:opacity-90 active:scale-[0.99]">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.124.556 4.119 1.528 5.848l-1.528 5.579 5.724-1.501c1.693.924 3.633 1.451 5.699 1.451 6.627 0 12-5.373 12-12 0-6.627-5.373-12-11.423-12z"/></svg>
-                            <span>Enviar pedido pelo WhatsApp</span>
+                            <span>Enviar pelo WhatsApp</span>
                         </button>
                         <button type="button" id="copySummaryBtn" class="theme-btn-outline-primary w-full py-3.5 px-5 rounded-2xl font-medium text-xs sm:text-sm flex items-center justify-center gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
@@ -553,10 +563,10 @@
                     <p class="inline-flex items-center gap-2 text-xs uppercase tracking-widest opacity-70">
                         <span>Conecte-se</span><span aria-hidden="true">•</span><span>Canais oficiais</span>
                     </p>
-                    <h2 id="canaisTitle" class="font-serif text-3xl sm:text-5xl font-semibold">Redes sociais &amp; atendimento</h2>
+                    <h2 id="canaisTitle" class="font-serif text-3xl sm:text-5xl font-semibold">Redes sociais &amp; Atendimento</h2>
                 </div>
                 <p class="theme-muted-secondary text-sm sm:text-base max-w-md">
-                    Reflexões sobre saúde mental, trajetória profissional e a sala de atendimento online.
+                    Reflexões sobre saúde mental, comunidade, trajetória profissional, a sala de atendimento online e uma playlist feita a muitas mãos.
                 </p>
             </div>
 
@@ -574,6 +584,22 @@
                             </span>
                             <span class="theme-muted-secondary text-sm leading-relaxed block">Dúvidas sobre a primeira sessão, valores, reembolso de plano de saúde e agendamentos.</span>
                             <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">Iniciar conversa <span aria-hidden="true">→</span></span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://whatsapp.com/channel/0029Vb8tlK3DzgT8VFpyUI03" target="_blank" rel="noopener noreferrer"
+                       class="cat-ear-card theme-card-secondary h-full p-6 sm:p-8 rounded-3xl flex items-start gap-5 group hover:-translate-y-1.5">
+                        <span class="w-14 h-14 rounded-2xl border border-current/25 flex items-center justify-center flex-shrink-0 group-hover:bg-current" aria-hidden="true">
+                            <svg class="w-7 h-7 group-hover:text-[var(--sec-secondary-surface)]" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </span>
+                        <span class="space-y-1.5 block">
+                            <span class="flex flex-wrap items-center gap-2">
+                                <span class="font-serif text-2xl font-semibold">Comunidade PsiPsi</span>
+                                <span class="text-[11px] px-2.5 py-0.5 rounded-full border border-current/25 uppercase tracking-wider">Canal no WhatsApp</span>
+                            </span>
+                            <span class="theme-muted-secondary text-sm leading-relaxed block">Um canal para receber conteúdos, avisos e pequenas reflexões sobre saúde mental, direto no seu WhatsApp.</span>
+                            <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">Seguir o canal <span aria-hidden="true">→</span></span>
                         </span>
                     </a>
                 </li>
@@ -626,6 +652,22 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a href="https://open.spotify.com/playlist/1fbSu2IdIbzfKFmEavNC3y" target="_blank" rel="noopener noreferrer"
+                       class="cat-ear-card theme-card-secondary h-full p-6 sm:p-8 rounded-3xl flex items-start gap-5 group hover:-translate-y-1.5">
+                        <span class="w-14 h-14 rounded-2xl border border-current/25 flex items-center justify-center flex-shrink-0 group-hover:bg-current" aria-hidden="true">
+                            <svg class="w-7 h-7 group-hover:text-[var(--sec-secondary-surface)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        </span>
+                        <span class="space-y-1.5 block">
+                            <span class="flex flex-wrap items-center gap-2">
+                                <span class="font-serif text-2xl font-semibold">Playlist colaborativa</span>
+                                <span class="text-[11px] px-2.5 py-0.5 rounded-full border border-current/25 uppercase tracking-wider">Spotify</span>
+                            </span>
+                            <span class="theme-muted-secondary text-sm leading-relaxed block">Músicas que acalmam, acolhem e inspiram, escolhidas em conjunto. Ouça e deixe a sua sugestão.</span>
+                            <span class="inline-block pt-2 text-xs font-semibold uppercase tracking-widest opacity-80 group-hover:opacity-100">Ouvir e colaborar <span aria-hidden="true">→</span></span>
+                        </span>
+                    </a>
+                </li>
             </ul>
 
             <div class="theme-card-secondary p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6">
@@ -634,7 +676,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </span>
                     <address class="not-italic">
-                        <span class="text-xs uppercase tracking-wider opacity-70 block">Consultório presencial &amp; atendimento online</span>
+                        <span class="text-xs uppercase tracking-wider opacity-70 block">Consultório presencial &amp; Atendimento online</span>
                         <span class="font-serif text-xl font-medium block">R. Chiden Kalil, 428 - Jardim Santa Helena, Bocaiúva do Sul - PR, 83453-054</span>
                     </address>
                 </div>
@@ -686,7 +728,7 @@
         <section id="soundPanel" hidden aria-labelledby="soundPanelTitle" class="sound-panel w-[min(92vw,23rem)] max-h-[78vh] overflow-y-auto rounded-3xl shadow-2xl p-5 space-y-5">
             <div class="flex items-start justify-between gap-3">
                 <div>
-                    <p class="text-[11px] uppercase tracking-widest opacity-70">Imersão &amp; acessibilidade</p>
+                    <p class="text-[11px] uppercase tracking-widest opacity-70">Imersão &amp; Acessibilidade</p>
                     <h2 id="soundPanelTitle" class="font-serif text-2xl font-semibold leading-tight">Um momento para você</h2>
                 </div>
                 <button type="button" id="soundPanelClose" class="p-2 rounded-xl border border-current/20 hover:border-current/60" aria-label="Fechar painel de som">
@@ -762,28 +804,29 @@
                         </section>
                         <section data-chapter="O visual do site">
                             <h4 class="font-semibold text-current">O visual do site</h4>
-                            <p>O site usa apenas preto, branco e tons de cinza. As seções se alternam entre fundo claro e fundo escuro, como luz e sombra. No topo, uma barra fixa mostra o nome Camili Ribeiro ao lado de um símbolo circular, parecido com um yin-yang, com duas pequenas orelhas de gato. À direita fica um botão que troca o site entre o tema claro e o tema escuro. Os títulos usam uma letra serifada e elegante; os textos, uma letra simples e arredondada. Pelo caminho aparecem detalhes discretos: pegadas de gato, silhuetas de gatinhos se espreguiçando entre as seções e cartões que ganham duas orelhinhas quando o cursor passa por cima. Pequenos pontos claros flutuam devagar pelo fundo.</p>
+                            <p>O site usa apenas preto, branco e tons de cinza. As seções se alternam entre fundo claro e fundo escuro, como luz e sombra. No topo, uma barra fixa mostra o nome Camili Ribeiro ao lado de um símbolo circular, parecido com um yin-yang, com duas pequenas orelhas de gato. À direita fica um botão que alterna entre o Tema Luz, mais claro, e o Tema Sombra, mais escuro. Os títulos usam uma letra serifada e elegante; os textos, uma letra simples e arredondada. Pelo caminho aparecem detalhes discretos: pegadas de gato, silhuetas de gatinhos se espreguiçando entre as seções e cartões que ganham duas orelhinhas quando o cursor passa por cima. Pequenos pontos claros flutuam devagar pelo fundo.</p>
                         </section>
                         <section data-chapter="Apresentação e fotos">
                             <h4 class="font-semibold text-current">Apresentação e fotos</h4>
-                            <p>O título principal diz: Encontre equilíbrio entre o que você sente e quem você é. Logo abaixo: Entre a luz e a sombra existe um lugar de calma. A psicoterapia é o seu espaço seguro para desacelerar, acolher a sua história e se reconectar consigo, no seu tempo. Em seguida aparecem o nome Camili Ribeiro, a função psicóloga e psicoterapeuta, o CRP, e dois botões: Agendar sessão e Conversar pelo WhatsApp.</p>
-                            <p>Ao lado, uma moldura alta em forma de arco, como uma janela antiga, mostra em sequência fotos ilustrativas de ambientes de consultório com luz baixa. Na primeira, uma poltrona e uma mesinha numa sala escura, iluminadas só pela luz alaranjada de um abajur de chão. Na segunda, uma sala com paredes de madeira, um sofá cinza e a luz quente de um abajur. Na terceira, um canto tranquilo com poltrona e uma luminária acesa. As fotos aparecem quase em preto e branco e ganham cor quando o cursor passa sobre elas. Na base da moldura está escrito: Escutar com a alma é acolher sem pressa. Encostado na moldura, um pequeno cartão mostra dois gatinhos desenhados, um preto e um branco, sentados lado a lado de olhos fechados, com um coração entre eles e a legenda Luz e Sombra, equilíbrio emocional.</p>
+                            <p>Logo no início, um pequeno selo traz a letra grega psi, símbolo da Psicologia, e os dizeres: Psicologia Clínica, baseada em evidências, online e presencial. O título principal diz: Encontre equilíbrio entre o que você sente e quem você é. Logo abaixo: Entre a luz e a sombra existe um lugar de calma. A psicoterapia é o seu espaço seguro para desacelerar, acolher a sua história e se reconectar consigo, no seu tempo. Em seguida aparecem o nome Camili Ribeiro, a função psicóloga e psicoterapeuta, o CRP, e dois botões: Agendar sessão e Conversar pelo WhatsApp.</p>
+                            <p>Ao fundo, do lado direito, passam devagar fotos ilustrativas de ambientes de consultório com luz baixa, que se dissolvem suavemente na cor do fundo. Na primeira, uma poltrona e uma mesinha numa sala escura, iluminadas só pela luz alaranjada de um abajur de chão. Na segunda, uma sala com paredes de madeira, um sofá cinza e a luz quente de um abajur. Na terceira, um canto tranquilo com poltrona e uma luminária acesa. Sobre as fotos aparece a frase: Escutar com a alma é acolher sem pressa.</p>
+                            <p>Perto delas há um pequeno cartão com dois gatinhos desenhados, um preto e um branco, sentados lado a lado de olhos fechados, com um coração entre eles e a legenda Luz e Sombra, equilíbrio emocional. Quem toca no cartão faz um carinho: os gatinhos ronronam baixinho, abanam o rabo, sobem corações e aparece uma mensagem gentil.</p>
                         </section>
                         <section data-chapter="Sobre a Camili">
                             <h4 class="font-semibold text-current">Sobre a Camili</h4>
-                            <p>Camili Ribeiro é psicóloga e psicoterapeuta, graduada pelo Centro Universitário Campos de Andrade, com foco em Psicologia Baseada em Evidências. Ela oferece uma escuta qualificada e livre de julgamentos, unindo ferramentas científicas práticas à sensibilidade humana, respeitando o tempo de cada pessoa. Os pilares do atendimento são: sigilo profissional, conforme o Código de Ética do Psicólogo; escuta ativa; e atendimento online para brasileiros em qualquer lugar do mundo. Nessa seção há também um círculo desenhado com dois gatinhos entrelaçados, um cheio e um só em contorno, e um botão para fazer uma pausa guiada de respiração.</p>
+                            <p>Camili Ribeiro é psicóloga e psicoterapeuta, bacharel em Psicologia pelo Centro Universitário Campos de Andrade. Sua atuação é fundamentada na ciência e no compromisso com a formação continuada. Ela oferece um ambiente seguro, presença e escuta genuína, livre de julgamentos, integrando conhecimento científico e sensibilidade humana, e respeita o ritmo e o tempo de cada pessoa. Os pilares do atendimento são: sigilo profissional, conforme o Código de Ética do Psicólogo; escuta ativa; e atendimento online para brasileiros em qualquer lugar do mundo. Nessa seção há também um círculo desenhado com dois gatinhos entrelaçados, um cheio e um só em contorno, e um botão para fazer uma pausa guiada de respiração.</p>
                         </section>
                         <section data-chapter="Especialidades">
                             <h4 class="font-semibold text-current">Especialidades</h4>
-                            <p>Quatro áreas de foco. Primeira: ansiedade e estresse, com estratégias para desacelerar pensamentos intrusivos, lidar com sobrecarga e perfeccionismo e recuperar o descanso. Segunda: autoconhecimento, com compreensão da própria história, autoestima e alinhamento com seus valores. Terceira: relacionamentos e limites, para aprender a dizer não com leveza nas relações afetivas, familiares e no trabalho. Quarta: terapia online, em sala privada pelo Discord, Google Meet ou vídeo do WhatsApp.</p>
+                            <p>Camili acompanha jovens adultos, adultos e pessoas idosas, em diferentes momentos da vida. São quatro áreas de foco. Primeira: ansiedade e estresse, com estratégias para desacelerar pensamentos intrusivos, lidar com sobrecarga e perfeccionismo e recuperar o descanso. Segunda: autoconhecimento, com compreensão da própria história, autoestima e alinhamento com seus valores. Terceira: relacionamentos e limites, para aprender a dizer não com leveza nas relações afetivas, familiares e no trabalho. Quarta: psicoterapia online, por videochamada, com horários flexíveis e plataformas digitais seguras.</p>
                         </section>
                         <section data-chapter="Como agendar">
                             <h4 class="font-semibold text-current">Como agendar</h4>
-                            <p>Na seção Agende sua sessão, escolha primeiro um dos próximos dias e depois um horário de preferência, de manhã, à tarde ou à noite. Depois, escreva seu nome, escolha a modalidade, online ou presencial, e, se quiser, uma observação curta. O botão Enviar pedido pelo WhatsApp abre uma mensagem pronta para a Camili, que confirma o horário de acordo com a agenda real. Nada do que você digita fica salvo no site. Cada sessão dura cinquenta minutos, e há emissão de recibo para reembolso em planos de saúde.</p>
+                            <p>Na seção Agende sua sessão, escolha primeiro um dos próximos dias e depois um horário de preferência. De manhã: nove e meia, dez e meia, onze e meia ou meio-dia e meia. À tarde: duas e meia, três e meia, quatro e meia ou cinco e meia. À noite: seis e meia, sete e meia ou oito e meia. Depois, escreva seu nome e escolha a modalidade: presencial, ou online pelo Google Meet, pelo WhatsApp ou pelo Discord. Se quiser, deixe uma observação curta. O botão Enviar pelo WhatsApp abre uma mensagem pronta para a Camili, que confirma o horário de acordo com a agenda real. Nada do que você digita fica salvo no site. Cada sessão dura cinquenta minutos, e há emissão de recibo para reembolso em planos de saúde.</p>
                         </section>
                         <section data-chapter="Contatos e endereço">
                             <h4 class="font-semibold text-current">Contatos e endereço</h4>
-                            <p>WhatsApp: quarenta e um, nove oito oito quatro seis, sete dois quatro zero. Instagram: arroba psipsicrs. Há também LinkedIn e uma sala no Discord chamada Clínica PsiPsi. O consultório presencial fica na Rua Chiden Kalil, número quatrocentos e vinte e oito, Jardim Santa Helena, Bocaiúva do Sul, Paraná. Importante: este site não oferece atendimento de emergência. Em caso de crise, ligue gratuitamente para o CVV, no número cento e oitenta e oito, disponível vinte e quatro horas. Obrigada por ouvir.</p>
+                            <p>WhatsApp: quarenta e um, nove oito oito quatro seis, sete dois quatro zero. Há também a Comunidade PsiPsi, um canal no WhatsApp com conteúdos e avisos; o Instagram, arroba psipsicrs; o LinkedIn; uma sala no Discord chamada Clínica PsiPsi; e uma playlist colaborativa no Spotify, onde você pode ouvir e sugerir músicas. O consultório presencial fica na Rua Chiden Kalil, número quatrocentos e vinte e oito, Jardim Santa Helena, Bocaiúva do Sul, Paraná. Importante: este site não oferece atendimento de emergência. Em caso de crise, ligue gratuitamente para o CVV, no número cento e oitenta e oito, disponível vinte e quatro horas. Obrigada por ouvir.</p>
                         </section>
                     </div>
                 </details>
