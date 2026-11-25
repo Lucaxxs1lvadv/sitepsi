@@ -175,24 +175,79 @@ body, section, header, footer, div, button, a, span, p, h1, h2, h3, h4, input, s
 .js .reveal-item { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease-calm), transform .9s var(--ease-calm); }
 .js .reveal-item.revealed { opacity: 1; transform: none; }
 
-/* ---------- Galeria do consultório (moldura em arco) ---------- */
-.office-frame {
-    background:
-        radial-gradient(60% 45% at 70% 35%, rgba(255, 190, 120, .35), transparent 70%),
-        linear-gradient(180deg, #1c1712 0%, #0c0a08 100%);
+/* ---------- Fotos do consultório: atrás do conteúdo, dissolvendo no fundo ---------- */
+/* A máscara deixa a foto transparente nas bordas: a cor que aparece é a do
+   próprio fundo da seção, então o degradê acompanha o Tema Luz e o Tema Sombra
+   sozinho, com a mesma transição suave. */
+.hero-media {
+    position: absolute; z-index: 0; margin: 0;
+    left: 0; right: 0; top: 0; height: 30rem;
+    background: radial-gradient(55% 45% at 60% 40%, rgba(255, 185, 110, .22), transparent 70%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, #000 22%, #000 48%, transparent 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, #000 22%, #000 48%, transparent 100%);
 }
+@media (min-width: 640px) { .hero-media { height: 36rem; } }
+@media (min-width: 1024px) {
+    .hero-media {
+        left: auto; width: 60%; height: auto; bottom: 0;
+        -webkit-mask-image:
+            linear-gradient(to right, transparent 0%, rgba(0,0,0,.55) 22%, #000 48%),
+            linear-gradient(to bottom, rgba(0,0,0,.3) 0%, #000 18%, #000 66%, transparent 100%);
+        -webkit-mask-composite: source-in;
+                mask-image:
+            linear-gradient(to right, transparent 0%, rgba(0,0,0,.55) 22%, #000 48%),
+            linear-gradient(to bottom, rgba(0,0,0,.3) 0%, #000 18%, #000 66%, transparent 100%);
+                mask-composite: intersect;
+    }
+}
+/* véu leve na cor do tema, para as fotos conversarem com o preto e branco do site */
+.hero-media-tint { position: absolute; inset: 0; background-color: var(--sec-primary-bg); opacity: .18; pointer-events: none; }
+
 .office-slide {
-    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-    opacity: 0; transform: scale(1.04);
-    filter: grayscale(.85) brightness(.82) contrast(1.05);
-    transition: opacity 1.6s var(--ease-calm), transform 9s linear, filter 1.2s var(--ease-calm);
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+    opacity: 0; transform: scale(1.05);
+    filter: grayscale(.7) contrast(1.05) brightness(.88);
+    transition: opacity 1.8s var(--ease-calm), transform 10s linear, filter 1.4s var(--ease-calm);
 }
 .office-slide.is-active { opacity: 1; transform: scale(1); }
-.group:hover .office-slide, .group:focus-within .office-slide { filter: grayscale(0) brightness(.9) sepia(.12); }
+#inicio:hover .office-slide { filter: grayscale(.1) contrast(1.02) brightness(.92) sepia(.08); }
 .office-slide.is-broken { display: none; }
 
-.slide-dot { width: .5rem; height: .5rem; border-radius: 9999px; background: rgba(255,255,255,.45); }
-.slide-dot[aria-current="true"] { background: #fff; width: 1.25rem; }
+/* Pílulas e textos que ficam por cima das fotos */
+.hero-glass {
+    background-color: color-mix(in oklab, var(--sec-primary-bg) 62%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.hero-quote { color: var(--sec-primary-text); text-shadow: 0 1px 18px var(--sec-primary-bg), 0 0 2px var(--sec-primary-bg); }
+
+.slide-dot { width: .45rem; height: .45rem; border-radius: 9999px; background: currentColor; opacity: .35; transition: width .4s var(--ease-calm), opacity .4s; }
+.slide-dot[aria-current="true"] { opacity: .9; width: 1.1rem; }
+
+/* ---------- Cartão Luz & Sombra: o ronrom ---------- */
+@keyframes purrShake {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(.45px, -.35px); }
+    50% { transform: translate(-.45px, .3px); }
+    75% { transform: translate(.3px, .45px); }
+}
+@keyframes tailWag { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(9deg); } }
+@keyframes tailWagR { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-9deg); } }
+@keyframes heartBeat { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.3); } }
+.cat-tail-left { transform-box: fill-box; transform-origin: 100% 100%; }
+.cat-tail-right { transform-box: fill-box; transform-origin: 0% 100%; }
+.cat-heart { transform-box: fill-box; transform-origin: center; }
+.harmony-card.is-purring .harmony-cats { animation: purrShake .09s linear infinite; }
+.harmony-card.is-purring .cat-tail-left { animation: tailWag .9s ease-in-out 3; }
+.harmony-card.is-purring .cat-tail-right { animation: tailWagR .9s ease-in-out .15s 3; }
+.harmony-card.is-purring .cat-heart { animation: heartBeat .9s ease-in-out 3; }
+
+.purr-bubble {
+    opacity: 0; transform: translateY(6px) scale(.97); pointer-events: none;
+    transition: opacity .5s var(--ease-calm), transform .5s var(--ease-calm);
+    color: var(--sec-primary-text);
+}
+.purr-bubble.is-visible { opacity: 1; transform: none; }
+.purr-bubble:empty { display: none; }
 
 /* ---------- Respiração guiada ---------- */
 .breath-ring { transition: transform 4s ease-in-out, opacity 4s ease-in-out; }

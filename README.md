@@ -27,16 +27,16 @@ Suba **index.html** e a pasta **assets/** para o repositório `sitepsi`.
   ```
   (Só mudar texto não precisa recompilar.)
 
-## Fotos do consultório
-As fotos atuais são ilustrativas (Unsplash, licença gratuita, créditos no rodapé).
-Para usar fotos reais do consultório da Camili:
-1. Salve em `assets/img/` (ex.: `consultorio-1.jpg`, formato retrato 4:5, ~1080×1350).
-2. Troque `src`/`srcset` das três `<img class="office-slide">` no `index.html` e ajuste o `alt`.
-3. Remova `https://images.unsplash.com` da linha `Content-Security-Policy` e os créditos do rodapé.
-4. Atualize a descrição das fotos no capítulo “Apresentação e fotos” da audiodescrição.
+## Fotos do carrossel
+As fotos ficam em `assets/img/`, em WebP, nos tamanhos 720/1080/1440 px de largura
+(sem metadados: localização e dados do celular são removidos na conversão).
+Para trocar ou adicionar uma foto:
+1. Salve a imagem em `assets/img/` (formato retrato fica melhor).
+2. Copie um dos blocos `<img class="office-slide">` no `index.html`, ajuste `src`, `srcset`, `width`/`height` e o `alt`.
+3. Atualize a descrição das fotos no capítulo "Apresentação e fotos" da audiodescrição.
 
 ## Segurança
-- CSP restritiva: só executa scripts do próprio site; nada de CDN, Google Fonts ou scripts inline.
+- CSP restritiva: scripts, estilos, fontes e imagens só do próprio site; nada de CDN, Google Fonts ou scripts inline.
 - Nenhum dado de paciente é salvo ou enviado: a mensagem é montada no navegador e só sai pelo WhatsApp.
 - Entradas higienizadas e com limite de tamanho; DOM gerado sem `innerHTML`.
 - O GitHub Pages não permite cabeçalhos HTTP próprios (ex.: `frame-ancestors`, HSTS). Se um dia

@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Segurança: só carrega scripts, estilos e fontes do próprio site.
-         Imagens: próprio site + Unsplash (remova o Unsplash quando usar fotos próprias em assets/img). -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+    <!-- Segurança: só carrega scripts, estilos, fontes e imagens do próprio site. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>Camili Ribeiro | Psicóloga / Psicoterapeuta · CRP 08/48173</title>
     <meta name="description" content="Camili Ribeiro, psicóloga e psicoterapeuta (CRP 08/48173). Psicoterapia baseada em evidências, online e presencial em Bocaiúva do Sul - PR. Agende sua sessão.">
     <meta name="theme-color" content="#0C0C0E">
-    <link rel="canonical" href="https://lucaxxs1lvadv.github.io/sitepsi/">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='12' fill='%23111113'/%3E%3Cg fill='%23FAF9F5'%3E%3Ccircle cx='7.5' cy='8' r='1.8'/%3E%3Ccircle cx='12' cy='6.6' r='1.8'/%3E%3Ccircle cx='16.5' cy='8' r='1.8'/%3E%3Cpath d='M12 10.5c-3 0-5 2.2-5 4.7 0 1.7 1.5 3 3.4 3 .7 0 1.1-.2 1.6-.2s.9.2 1.6.2c1.9 0 3.4-1.3 3.4-3 0-2.5-2-4.7-5-4.7z'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="canonical" href="https://camiliribeiro.com.br/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='12' fill='%23111113'/%3E%3Cg fill='none' stroke='%23FAF9F5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14'/%3E%3Cpath d='M6.5 7.5c0 0 .2.9.2 2.6 0 2.9 2.1 4.6 5.3 4.6s5.3-1.7 5.3-4.6c0-1.7.2-2.6.2-2.6'/%3E%3Cpath d='M9.8 19h4.4'/%3E%3C/g%3E%3C/svg%3E">
 
     <!-- Compartilhamento (WhatsApp, Instagram, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:title" content="Camili Ribeiro | Psicóloga / Psicoterapeuta">
     <meta property="og:description" content="Psicoterapia online e presencial, no seu tempo. CRP 08/48173.">
-    <meta property="og:url" content="https://lucaxxs1lvadv.github.io/sitepsi/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1200&h=630&q=70">
+    <meta property="og:url" content="https://camiliribeiro.com.br/">
+    <meta property="og:image" content="https://camiliribeiro.com.br/assets/img/og-camili-ribeiro.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <link rel="preload" href="assets/fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -36,7 +37,7 @@
         "@type": "ProfessionalService",
         "name": "Camili Ribeiro — Psicóloga / Psicoterapeuta",
         "description": "Psicoterapia baseada em evidências, online e presencial. CRP 08/48173.",
-        "url": "https://lucaxxs1lvadv.github.io/sitepsi/",
+        "url": "https://camiliribeiro.com.br/",
         "telephone": "+55-41-98846-7240",
         "address": {
             "@type": "PostalAddress",
@@ -68,10 +69,9 @@
                     <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
                         <path d="M32 4C16.536 4 4 16.536 4 32C4 47.464 16.536 60 32 60C32 51 25 46 25 38C25 30 35 27 35 18C35 12 31 8 32 4Z" fill="currentColor"/>
-                        <path d="M22 14L25 22L18 20Z" fill="currentColor"/>
-                        <path d="M42 14L39 22L46 20Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                        <circle cx="24" cy="24" r="2.2" class="fill-primary-bg"/>
-                        <circle cx="40" cy="40" r="2.5" fill="currentColor"/>
+                        <!-- no lugar das bolinhas do yin-yang: duas orelhinhas, uma de cada cor -->
+                        <path d="M14.5 27C15.5 22 17.4 18 20.2 15C20.9 14.3 21.9 14.4 22.4 15.3C24.2 18.6 25.3 22.3 25.6 26.3C21.9 25.4 18.1 25.6 14.5 27Z" class="fill-primary-bg"/>
+                        <path d="M38.4 47.7C38.7 43.7 39.8 40 41.6 36.7C42.1 35.8 43.1 35.7 43.8 36.4C46.6 39.4 48.5 43.4 49.5 48.4C45.9 47 42.1 46.8 38.4 47.7Z" fill="currentColor"/>
                     </svg>
                 </span>
                 <span>
@@ -124,22 +124,52 @@
     <section id="inicio" class="theme-section-primary relative pt-28 pb-20 md:pt-36 md:pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden" aria-labelledby="heroTitle">
 
         <!-- Fotos do consultório: ficam atrás do conteúdo e se dissolvem no fundo (claro ou escuro, conforme o tema) -->
-        <figure class="hero-media" aria-roledescription="carrossel" aria-label="Fotos ilustrativas de ambientes de consultório">
-            <img class="office-slide is-active" width="1080" height="1350" fetchpriority="high" decoding="async"
-                 src="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1080&h=1350&q=70"
-                 srcset="https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1080&h=1350&q=70 1080w, https://images.unsplash.com/photo-1704697475935-46009ec1d1e7?auto=format&fit=crop&w=1440&h=1800&q=70 1440w"
+        <figure class="hero-media" aria-roledescription="carrossel" aria-label="Fotos do consultório e de ambientes acolhedores">
+            <img class="office-slide is-active" fetchpriority="high" width="1440" height="2559" decoding="async"
+                 src="assets/img/01-consultorio-1440.webp"
+                 srcset="assets/img/01-consultorio-720.webp 720w, assets/img/01-consultorio-1080.webp 1080w, assets/img/01-consultorio-1440.webp 1440w"
                  sizes="(min-width: 1024px) 60vw, 100vw"
-                 alt="Poltrona e mesinha em uma sala iluminada apenas pela luz alaranjada e suave de um abajur de chão.">
-            <img class="office-slide" width="1080" height="1350" loading="lazy" decoding="async"
-                 src="https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1080&h=1350&q=70"
-                 srcset="https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1080&h=1350&q=70 1080w, https://images.unsplash.com/photo-1680965585463-386646047473?auto=format&fit=crop&w=1440&h=1800&q=70 1440w"
+                 alt="Canto do consultório à noite: luminária de chão com cúpula clara acesa, poltrona com um caderno vermelho e quadros de árvore na parede.">
+            <img class="office-slide" loading="lazy" width="720" height="1080" decoding="async"
+                 src="assets/img/02-poltrona-noite-720.webp"
+                 srcset="assets/img/02-poltrona-noite-720.webp 720w"
                  sizes="(min-width: 1024px) 60vw, 100vw"
-                 alt="Sala aconchegante com paredes revestidas de madeira, sofá cinza e luz baixa de abajur.">
-            <img class="office-slide" width="1080" height="1350" loading="lazy" decoding="async"
-                 src="https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1080&h=1350&q=70"
-                 srcset="https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=720&h=900&q=70 720w, https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1080&h=1350&q=70 1080w, https://images.unsplash.com/photo-1675608691851-6493dbbc111e?auto=format&fit=crop&w=1440&h=1800&q=70 1440w"
+                 alt="Sala escura com uma poltrona amarela iluminada por uma luminária de chão, ao lado de uma janela à noite.">
+            <img class="office-slide" loading="lazy" width="720" height="1320" decoding="async"
+                 src="assets/img/03-cantinho-leitura-720.webp"
+                 srcset="assets/img/03-cantinho-leitura-720.webp 720w"
                  sizes="(min-width: 1024px) 60vw, 100vw"
-                 alt="Canto tranquilo com poltrona e luminária acesa em luz quente.">
+                 alt="Poltrona cinza com manta e um livro aberto, sob a luz quente de um abajur de chão, com estante de livros e uma planta ao lado.">
+            <img class="office-slide" loading="lazy" width="720" height="1080" decoding="async"
+                 src="assets/img/04-mesa-luminaria-720.webp"
+                 srcset="assets/img/04-mesa-luminaria-720.webp 720w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Mesa de madeira com uma luminária dourada acesa, xícara e caderno aberto, ao lado de uma cadeira verde.">
+            <img class="office-slide" loading="lazy" width="720" height="1079" decoding="async"
+                 src="assets/img/05-mesa-janela-720.webp"
+                 srcset="assets/img/05-mesa-janela-720.webp 720w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Escrivaninha de madeira junto à janela à noite, com um lampião aceso, plantas, livros e uma xícara.">
+            <img class="office-slide" loading="lazy" width="1080" height="1920" decoding="async"
+                 src="assets/img/06-livros-luz-laranja-1080.webp"
+                 srcset="assets/img/06-livros-luz-laranja-720.webp 720w, assets/img/06-livros-luz-laranja-1080.webp 1080w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Pilha de livros de psicologia banhada por uma luz alaranjada intensa.">
+            <img class="office-slide" loading="lazy" width="676" height="1200" decoding="async"
+                 src="assets/img/07-livro-conversar-720.webp"
+                 srcset="assets/img/07-livro-conversar-720.webp 676w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Livro amarelo “Talvez você deva conversar com alguém” sobre uma ecobag clara, com fones de ouvido, apoiado na grama.">
+            <img class="office-slide" loading="lazy" width="236" height="354" decoding="async"
+                 src="assets/img/08-poltrona-cha-720.webp"
+                 srcset="assets/img/08-poltrona-cha-720.webp 236w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Cantinho com poltrona, manta, livro aberto e xícara, sob a luz de uma luminária de leitura.">
+            <img class="office-slide" loading="lazy" width="1080" height="1920" decoding="async"
+                 src="assets/img/09-rosas-ceu-1080.webp"
+                 srcset="assets/img/09-rosas-ceu-720.webp 720w, assets/img/09-rosas-ceu-1080.webp 1080w"
+                 sizes="(min-width: 1024px) 60vw, 100vw"
+                 alt="Rosas vermelhas abertas contra um céu com nuvens rosadas ao entardecer.">
             <span class="hero-media-tint" aria-hidden="true"></span>
         </figure>
 
@@ -210,8 +240,7 @@
                     <div id="floatingPurrContainer" class="absolute inset-0 z-30" aria-hidden="true"></div>
 
                     <!-- Legenda das fotos + indicadores -->
-                    <div class="hero-glass absolute top-0 right-0 lg:top-6 pointer-events-auto flex items-center gap-2.5 pl-3 pr-2.5 py-1.5 rounded-full border border-current/15">
-                        <span class="text-[10px] uppercase tracking-widest opacity-75">Imagens ilustrativas</span>
+                    <div class="hero-glass absolute top-0 right-0 lg:top-6 pointer-events-auto flex items-center px-2.5 py-2 rounded-full border border-current/15">
                         <span id="slideDots" class="flex items-center gap-1.5"></span>
                     </div>
 
@@ -716,7 +745,6 @@
 
             <div class="text-xs theme-muted-primary max-w-md md:text-right space-y-2">
                 <p><strong>Atenção:</strong> este site não oferece atendimento de emergência. Em caso de crise emocional grave, ligue gratuitamente para o <strong>CVV (188)</strong>, disponível 24h, ou procure o serviço de saúde mais próximo. Em risco imediato, ligue <strong>192 (SAMU)</strong>.</p>
-                <p class="opacity-80">Imagens ilustrativas via Unsplash: <a class="underline underline-offset-2" href="https://unsplash.com/photos/a-chair-and-a-table-in-a-room-BHThOmX0yGs" target="_blank" rel="noopener noreferrer">Mohid Tahir</a>, <a class="underline underline-offset-2" href="https://unsplash.com/photos/a-living-room-with-wood-paneling-and-a-couch-nR0Q_jcUKrY" target="_blank" rel="noopener noreferrer">Clay Banks</a> e <a class="underline underline-offset-2" href="https://unsplash.com/photos/a-chair-and-a-lamp-in-a-room-NmqPnM4HJEc" target="_blank" rel="noopener noreferrer">henrikie</a>.</p>
             </div>
         </div>
     </footer>
@@ -804,12 +832,12 @@
                         </section>
                         <section data-chapter="O visual do site">
                             <h4 class="font-semibold text-current">O visual do site</h4>
-                            <p>O site usa apenas preto, branco e tons de cinza. As seções se alternam entre fundo claro e fundo escuro, como luz e sombra. No topo, uma barra fixa mostra o nome Camili Ribeiro ao lado de um símbolo circular, parecido com um yin-yang, com duas pequenas orelhas de gato. À direita fica um botão que alterna entre o Tema Luz, mais claro, e o Tema Sombra, mais escuro. Os títulos usam uma letra serifada e elegante; os textos, uma letra simples e arredondada. Pelo caminho aparecem detalhes discretos: pegadas de gato, silhuetas de gatinhos se espreguiçando entre as seções e cartões que ganham duas orelhinhas quando o cursor passa por cima. Pequenos pontos claros flutuam devagar pelo fundo.</p>
+                            <p>O site usa apenas preto, branco e tons de cinza. As seções se alternam entre fundo claro e fundo escuro, como luz e sombra. No topo, uma barra fixa mostra o nome Camili Ribeiro ao lado de um símbolo circular de yin-yang em que as duas bolinhas foram trocadas por orelhinhas de gato: uma branca, na metade preta, e uma preta, na metade branca. Na aba do navegador, o ícone é a letra grega psi, símbolo da Psicologia. À direita fica um botão que alterna entre o Tema Luz, mais claro, e o Tema Sombra, mais escuro. Os títulos usam uma letra serifada e elegante; os textos, uma letra simples e arredondada. Pelo caminho aparecem detalhes discretos: pegadas de gato, silhuetas de gatinhos se espreguiçando entre as seções e cartões que ganham duas orelhinhas quando o cursor passa por cima. Pequenos pontos claros flutuam devagar pelo fundo.</p>
                         </section>
                         <section data-chapter="Apresentação e fotos">
                             <h4 class="font-semibold text-current">Apresentação e fotos</h4>
                             <p>Logo no início, um pequeno selo traz a letra grega psi, símbolo da Psicologia, e os dizeres: Psicologia Clínica, baseada em evidências, online e presencial. O título principal diz: Encontre equilíbrio entre o que você sente e quem você é. Logo abaixo: Entre a luz e a sombra existe um lugar de calma. A Psicoterapia é o seu espaço seguro para desacelerar, acolher a sua história e se reconectar consigo, no seu tempo. Em seguida aparecem o nome Camili Ribeiro, a função psicóloga e psicoterapeuta, o CRP, e dois botões: Agendar sessão e Conversar pelo WhatsApp.</p>
-                            <p>Ao fundo, do lado direito, passam devagar fotos ilustrativas de ambientes de consultório com luz baixa, que se dissolvem suavemente na cor do fundo. Na primeira, uma poltrona e uma mesinha numa sala escura, iluminadas só pela luz alaranjada de um abajur de chão. Na segunda, uma sala com paredes de madeira, um sofá cinza e a luz quente de um abajur. Na terceira, um canto tranquilo com poltrona e uma luminária acesa. Sobre as fotos aparece a frase: Escutar com a alma é acolher sem pressa.</p>
+                            <p>Ao fundo, do lado direito, passam devagar fotos que se dissolvem suavemente na cor do fundo. A primeira mostra um canto do consultório à noite: uma luminária de chão acesa, uma poltrona com um caderno vermelho e quadros de árvore na parede. Depois vêm ambientes acolhedores com luz baixa: uma poltrona amarela perto da janela à noite; uma poltrona cinza com manta e livro aberto sob um abajur; uma mesa de madeira com luminária dourada, xícara e caderno; uma escrivaninha junto à janela com um lampião aceso; uma pilha de livros de psicologia banhada de luz alaranjada; o livro amarelo Talvez você deva conversar com alguém, sobre uma ecobag na grama; um cantinho com poltrona e xícara de chá; e, por fim, rosas vermelhas contra um céu rosado de fim de tarde. As fotos aparecem quase em preto e branco e ganham cor quando o cursor passa sobre elas. Sobre elas aparece a frase: Escutar com a alma é acolher sem pressa.</p>
                             <p>Perto delas há um pequeno cartão com dois gatinhos desenhados, um preto e um branco, sentados lado a lado de olhos fechados, com um coração entre eles e a legenda Luz e Sombra, equilíbrio emocional. Quem toca no cartão faz um carinho: os gatinhos ronronam baixinho, abanam o rabo, sobem corações e aparece uma mensagem gentil.</p>
                         </section>
                         <section data-chapter="Sobre a Camili">

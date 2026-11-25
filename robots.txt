@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://camiliribeiro.com.br/sitemap.xml
