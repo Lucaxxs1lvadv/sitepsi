@@ -210,6 +210,11 @@ body, section, header, footer, div, button, a, span, p, h1, h2, h3, h4, input, s
     transition: opacity 1.8s var(--ease-calm), transform 10s linear, filter 1.4s var(--ease-calm);
 }
 .office-slide.is-active { opacity: 1; transform: scale(1); }
+/* enquadramento por foto (o que fica visível quando a foto é cortada) */
+.office-slide.pos-alto { object-position: center 32%; }
+.office-slide.pos-meio-baixo { object-position: center 62%; }
+.office-slide.pos-baixo { object-position: center 80%; }
+.office-slide.pos-texto { object-position: center 72%; }
 #inicio:hover .office-slide { filter: grayscale(.1) contrast(1.02) brightness(.92) sepia(.08); }
 .office-slide.is-broken { display: none; }
 
